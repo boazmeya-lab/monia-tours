@@ -1,237 +1,738 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Monia Tours | Agence de Voyage & Tourisme</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Font Awesome pour les icônes -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monia Tours | Agence de Voyage & Billetterie</title>
+    <meta name="description" content="Billets d'avion, assistance visas, séjours touristiques et voyages organisés avec Monia Tours.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F97316',
+                            red: '#DC2626',
+                            dark: '#111827',
+                            light: '#F8F9FA',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Glassmorphism & custom utility classes */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        /* Swiper custom pagination */
+        .swiper-pagination-bullet-active {
+            background-color: #F97316 !important;
+            width: 24px !important;
+            border-radius: 9999px !important;
+        }
+
+        /* Image hover zoom effect container */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform 0.5s ease-out;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.08);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-white text-brand-dark antialiased selection:bg-brand-orange selection:text-white">
 
-  <!-- EN-TÊTE / NAVIGATION -->
-  <header class="navbar">
-    <div class="container nav-container">
-      
-      <!-- EMPLACEMENT DU LOGO -->
-      <a href="#" class="logo">
-        <!-- Remplace 'logo.png' par le chemin exact de ton fichier image de logo -->
-        <img src="logo.png" alt="Monia Tours Logo" class="logo-img" />
-        <span class="logo-text">MONIA <span>TOURS</span></span>
-      </a>
-
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#apropos">À Propos</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#destinations">Destinations</a></li>
-          <li><a href="#partenaires">Partenaires</a></li>
-          <!-- BOUTON CONTACT WHATSAPP DANS LE MENU -->
-          <li>
-            <a href="https://wa.me/243000000000?text=Bonjour%20Monia%20Tours,%20je%20souhaite%20avoir%20des%20informations." target="_blank" class="btn-whatsapp-nav">
-              <i class="fab fa-whatsapp"></i> Contacter
+    <!-- ==========================================
+         HEADER / NAVBAR
+    =========================================== -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-red text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-brand-red/30 group-hover:scale-105 transition-transform">
+                    M
+                </div>
+                <span class="font-extrabold text-2xl tracking-tight text-brand-dark">Monia<span class="text-brand-orange">Tours</span></span>
             </a>
-          </li>
-        </ul>
-      </nav>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#accueil" class="hover:text-brand-orange transition-colors">Accueil</a>
+                <a href="#destinations" class="hover:text-brand-orange transition-colors">Destinations</a>
+                <a href="#promotions" class="hover:text-brand-orange transition-colors">Promotions</a>
+                <a href="#services" class="hover:text-brand-orange transition-colors">Services</a>
+                <a href="#temoignages" class="hover:text-brand-orange transition-colors">Avis</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#reservation" class="bg-brand-red text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-red-700 transition-all shadow-md hover:shadow-lg hover:shadow-brand-red/20 active:scale-95">
+                    Réserver maintenant
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden text-2xl text-brand-dark focus:outline-none" aria-label="Ouvrir le menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl py-6 px-6 flex flex-col gap-4 font-medium">
+            <a href="#accueil" class="mobile-link py-2 border-b border-gray-50">Accueil</a>
+            <a href="#destinations" class="mobile-link py-2 border-b border-gray-50">Destinations</a>
+            <a href="#promotions" class="mobile-link py-2 border-b border-gray-50">Promotions</a>
+            <a href="#services" class="mobile-link py-2 border-b border-gray-50">Services</a>
+            <a href="#temoignages" class="mobile-link py-2 border-b border-gray-50">Avis</a>
+            <a href="#reservation" class="mobile-link text-center bg-brand-red text-white py-3 rounded-xl mt-2 font-semibold">Réserver maintenant</a>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         HERO SECTION
+    =========================================== -->
+    <section id="accueil" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+        <!-- Hero Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="imageaccueil.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80'" alt="Voyage Monia Tours" class="w-full h-full object-cover object-center scale-105 hero-bg-img">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-8 text-white space-y-6">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold uppercase tracking-wider text-brand-orange">
+                    <i class="fa-solid fa-compass animate-spin" style="animation-duration: 10s;"></i> Votre partenaire voyage de confiance
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight tracking-tight">
+                    <span id="hero-title-text">Explorez le monde avec</span> <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-red-500">Monia Tours</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-gray-200 max-w-2xl font-normal leading-relaxed">
+                    Billets d’avion, visas, séjours touristiques et voyages organisés vers les plus belles destinations du monde.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#search" class="bg-brand-red hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg shadow-brand-red/30 hover:scale-105 active:scale-95 flex items-center gap-3">
+                        <span>Réserver maintenant</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#destinations" class="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/30 font-bold px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95">
+                        Nos destinations
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Search Bar -->
+        <div id="search" class="absolute bottom-6 left-6 right-6 z-20 max-w-5xl mx-auto hidden lg:block">
+            <div class="glass-card p-4 rounded-3xl shadow-2xl border border-white/40">
+                <form class="grid grid-cols-4 gap-4 items-center">
+                    <div class="p-3 bg-white/50 rounded-2xl border border-gray-100 hover:border-brand-orange transition-colors">
+                        <label class="block text-xs font-bold text-gray-400 uppercase">Destination / Pays</label>
+                        <div class="flex items-center gap-2 mt-1">
+                            <i class="fa-solid fa-location-dot text-brand-orange"></i>
+                            <input type="text" placeholder="Où souhaitez-vous aller ?" class="bg-transparent text-sm font-semibold w-full focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-white/50 rounded-2xl border border-gray-100 hover:border-brand-orange transition-colors">
+                        <label class="block text-xs font-bold text-gray-400 uppercase">Ville de départ</label>
+                        <div class="flex items-center gap-2 mt-1">
+                            <i class="fa-solid fa-plane-departure text-brand-orange"></i>
+                            <input type="text" placeholder="Ville ou aéroport" class="bg-transparent text-sm font-semibold w-full focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-white/50 rounded-2xl border border-gray-100 hover:border-brand-orange transition-colors">
+                        <label class="block text-xs font-bold text-gray-400 uppercase">Date de départ</label>
+                        <div class="flex items-center gap-2 mt-1">
+                            <i class="fa-solid fa-calendar text-brand-orange"></i>
+                            <input type="date" class="bg-transparent text-sm font-semibold w-full focus:outline-none text-gray-700">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="h-full bg-brand-orange hover:bg-orange-600 text-white font-bold rounded-2xl transition-all shadow-lg shadow-brand-orange/30 flex items-center justify-center gap-2 p-4 text-base">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Rechercher</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Search Bar (Fallback) -->
+    <div class="lg:hidden p-6 bg-brand-light border-b border-gray-200">
+        <form class="space-y-3">
+            <div class="p-3 bg-white rounded-xl border border-gray-200">
+                <label class="block text-xs font-bold text-gray-400 uppercase">Destination</label>
+                <input type="text" placeholder="Dubaï, Paris, Zanzibar..." class="w-full text-sm font-semibold focus:outline-none mt-1">
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-gray-200">
+                <label class="block text-xs font-bold text-gray-400 uppercase">Date</label>
+                <input type="date" class="w-full text-sm font-semibold focus:outline-none mt-1">
+            </div>
+            <button type="submit" class="w-full bg-brand-orange text-white font-bold p-3 rounded-xl shadow-md">
+                Rechercher un voyage
+            </button>
+        </form>
     </div>
-  </header>
 
-  <!-- CARROUSEL HÉRO (DUBAÏ, PARIS, AMSTERDAM, BRUXELLES) -->
-  <section id="accueil" class="hero">
-    <div class="carousel">
-      <!-- Slide 1: Dubaï -->
-      <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80');">
-        <div class="slide-content">
-          <h1>Explorez Dubaï</h1>
-          <p>Luxe, modernité et séjours inoubliables aux Émirats.</p>
-          <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20réserver%20un%20voyage%20pour%20Dubaï." target="_blank" class="btn-primary">Réserver un voyage</a>
+    <!-- ==========================================
+         DESTINATIONS POPULAIRES
+    =========================================== -->
+    <section id="destinations" class="py-24 px-6 max-w-7xl mx-auto gsap-reveal">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <span class="text-brand-orange font-bold text-sm uppercase tracking-wider">Inspiration de voyage</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold mt-2">Destinations Populaires</h2>
+            </div>
+            <p class="text-gray-500 max-w-md mt-4 md:mt-0 text-sm leading-relaxed">
+                Explorez nos circuits les plus prisés, soigneusement élaborés pour vous offrir une expérience inoubliable.
+            </p>
         </div>
-      </div>
-      <!-- Slide 2: Paris -->
-      <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80');">
-        <div class="slide-content">
-          <h1>Découvrez Paris</h1>
-          <p>La capitale de la culture, de la mode et des affaires.</p>
-          <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20réserver%20un%20voyage%20pour%20Paris." target="_blank" class="btn-primary">Réserver un voyage</a>
-        </div>
-      </div>
-      <!-- Slide 3: Amsterdam -->
-      <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1600&q=80');">
-        <div class="slide-content">
-          <h1>S'évader à Amsterdam</h1>
-          <p>Charme des canaux et cadre d'exception en Europe.</p>
-          <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20réserver%20un%20voyage%20pour%20Amsterdam." target="_blank" class="btn-primary">Réserver un voyage</a>
-        </div>
-      </div>
-      <!-- Slide 4: Bruxelles -->
-      <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1559564484-e48b3e040ff4?auto=format&fit=crop&w=1600&q=80');">
-        <div class="slide-content">
-          <h1>Visitez Bruxelles</h1>
-          <p>Le cœur culturel et politique du continent européen.</p>
-          <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20réserver%20un%20voyage%20pour%20Bruxelles." target="_blank" class="btn-primary">Réserver un voyage</a>
-        </div>
-      </div>
-    </div>
 
-    <!-- Contrôles du carrousel -->
-    <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
-    <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
-  </section>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1: Dubaï -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="dubai.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80'" alt="Dubaï" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 7 Jours
+                    </span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Dubaï, Émirats Arabes</h3>
+                    <p class="text-sm text-gray-500 mb-4">Luxe, désert safari et architecture futuriste.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">1 200 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
+            </div>
 
-  <!-- À PROPOS & MISSION -->
-  <section id="apropos" class="section">
-    <div class="container">
-      <div class="section-title">
-        <h2>À Propos de Monia Tours</h2>
-        <p>Votre partenaire de confiance pour tous vos déplacements</p>
-      </div>
-      <div class="about-text">
-        <p><strong>Monia Tours</strong> est une agence de voyage et de tourisme spécialisée dans l'accompagnement complet des voyageurs. Notre mission est d'offrir des solutions clés en main : de la réservation de vos billets d'avion jusqu'à votre arrivée à destination.</p>
-        <p>Que ce soit pour des déplacements professionnels, des vacances en famille, des voyages d'affaires ou l'organisation de circuits de groupe, nous mettons notre expertise à votre service pour vous garantir sérénité, conseil et suivi rigoureux.</p>
-      </div>
-    </div>
-  </section>
+            <!-- Card 2: France -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="france.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80'" alt="France" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 5 Jours
+                    </span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Paris, France</h3>
+                    <p class="text-sm text-gray-500 mb-4">Culture, gastronomie et romance au cœur de l'Europe.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">1 450 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
+            </div>
 
-  <!-- NOS SERVICES -->
-  <section id="services" class="section bg-light">
-    <div class="container">
-      <div class="section-title">
-        <h2>Nos Services</h2>
-        <p>Des prestations adaptées à tous vos besoins de voyage</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <i class="fas fa-plane-departure"></i>
-          <h3>Vente de Billets</h3>
-          <p>Réservation et émission de billets d'avion pour tous vols nationaux et internationaux.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-passport"></i>
-          <h3>Accompagnement Visa</h3>
-          <p>Conseils pratiques, facilitation et suivi rigoureux dans la préparation de vos dossiers de demande de visa.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-route"></i>
-          <h3>Circuits Touristiques</h3>
-          <p>Organisation de voyages en groupe, séjours personnalisés et circuits de découverte de la RDC.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-hotel"></i>
-          <h3>Réservation d'Hôtels</h3>
-          <p>Sélection d'hébergements adaptés à votre budget et à vos exigences de confort.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-shield-alt"></i>
-          <h3>Assurance Voyage</h3>
-          <p>Couverture complète pour vous protéger contre tout imprévu durant vos déplacements.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-concierge-bell"></i>
-          <h3>Assistance Aéroportuaire</h3>
-          <p>Prise en charge et suivi personnalisé à l'aéroport pour un départ ou une arrivée sans stress.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+            <!-- Card 3: Turquie -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="turquie.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80'" alt="Turquie" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 6 Jours
+                    </span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Istanbul, Turquie</h3>
+                    <p class="text-sm text-gray-500 mb-4">Entre Orient et Occident, histoire et bazars.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">980 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
+            </div>
 
-  <!-- DESTINATIONS ET TARIFS -->
-  <section id="destinations" class="section">
-    <div class="container">
-      <div class="section-title">
-        <h2>Destinations Phares</h2>
-        <p>Découvrez nos offres et destinations populaires</p>
-      </div>
-      <div class="destinations-grid">
-        <!-- Carte Dubaï -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Dubaï" />
-          <div class="card-body">
-            <h3>Dubaï (Émirats)</h3>
-            <p>Vol, assistance & séjour sur mesure.</p>
-            <div class="price">Tarif sur demande</div>
-            <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20les%20tarifs%20pour%20Dubaï." target="_blank" class="btn-secondary">Se renseigner</a>
-          </div>
-        </div>
-        <!-- Carte Paris -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" alt="Paris" />
-          <div class="card-body">
-            <h3>Paris (France)</h3>
-            <p>Billetterie vols directs & accompagnement.</p>
-            <div class="price">Tarif sur demande</div>
-            <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20les%20tarifs%20pour%20Paris." target="_blank" class="btn-secondary">Se renseigner</a>
-          </div>
-        </div>
-        <!-- Carte Amsterdam -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=600&q=80" alt="Amsterdam" />
-          <div class="card-body">
-            <h3>Amsterdam (Pays-Bas)</h3>
-            <p>Circuits touristiques et vols réguliers.</p>
-            <div class="price">Tarif sur demande</div>
-            <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20les%20tarifs%20pour%20Amsterdam." target="_blank" class="btn-secondary">Se renseigner</a>
-          </div>
-        </div>
-        <!-- Carte Bruxelles -->
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1559564484-e48b3e040ff4?auto=format&fit=crop&w=600&q=80" alt="Bruxelles" />
-          <div class="card-body">
-            <h3>Bruxelles (Belgique)</h3>
-            <p>Réservations vols & facilitation de séjour.</p>
-            <div class="price">Tarif sur demande</div>
-            <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20les%20tarifs%20pour%20Bruxelles." target="_blank" class="btn-secondary">Se renseigner</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <!-- Card 4: Zanzibar -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="zanzibar.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80'" alt="Zanzibar" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 8 Jours
+                    </span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Zanzibar, Tanzanie</h3>
+                    <p class="text-sm text-gray-500 mb-4">Plages de sable blanc et eaux turquoises d'exception.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">1 100 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
+            </div>
 
-  <!-- COMPAGNIES PARTENAIRES -->
-  <section id="partenaires" class="section bg-light">
-    <div class="container">
-      <div class="section-title">
-        <h2>Compagnies Aériennes Partenaires</h2>
-        <p>Nous travaillons avec les meilleures compagnies pour vos trajets</p>
-      </div>
-      <div class="partners-list">
-        <span class="partner-badge">Air Congo</span>
-        <span class="partner-badge">Congo Airways</span>
-        <span class="partner-badge">Ethiopian Airlines</span>
-        <span class="partner-badge">Brussels Airlines</span>
-        <span class="partner-badge">Air France</span>
-        <span class="partner-badge">Turkish Airlines</span>
-        <span class="partner-badge">Qatar Airways</span>
-        <span class="partner-badge">Kenya Airways</span>
-      </div>
-    </div>
-  </section>
+            <!-- Card 5: Thaïlande -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="thailande.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1506665531195-3566af294710?auto=format&fit=crop&w=800&q=80'" alt="Thaïlande" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 10 Jours
+                    </span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Bangkok & Phuket</h3>
+                    <p class="text-sm text-gray-500 mb-4">Temples majestueux, îles tropicales et street food.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">1 350 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
+            </div>
 
-  <!-- PIED DE PAGE -->
-  <footer id="contact">
-    <div class="container footer-content">
-      <div>
-        <h3>MONIA TOURS</h3>
-        <p>Votre agence de voyage de référence pour vos billets, démarches et circuits touristiques.</p>
-      </div>
-      <div>
-        <h4>Contact Direct</h4>
-        <p><i class="fas fa-envelope"></i> contact@moniatours.com</p>
-        <p><i class="fab fa-whatsapp"></i> WhatsApp : +243 000 000 000</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Monia Tours. Tous droits réservés.</p>
-    </div>
-  </footer>
+            <!-- Card 6: Égypte -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="egypte.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=800&q=80'" alt="Égypte" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 7 Jours
+                    </span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Le Caire & Le Nil</h3>
+                    <p class="text-sm text-gray-500 mb-4">Pyramides antiques et croisières inoubliables.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">950 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- BOUTON FLOTTANT WHATSAPP (AFFICHE EN BAS À DROITE DU SITE) -->
-  <a href="https://wa.me/243000000000?text=Bonjour%20Monia%20Tours,%20je%20souhaite%20obtenir%20des%20renseignements." class="whatsapp-float" target="_blank" title="Discuter sur WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+    <!-- ==========================================
+         PROMOTIONS DU MOIS
+    =========================================== -->
+    <section id="promotions" class="py-20 bg-brand-light px-6 gsap-reveal">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-gradient-to-br from-brand-dark to-slate-900 rounded-3xl p-8 md:p-14 text-white relative overflow-hidden shadow-2xl">
+                <!-- Background decorative elements -->
+                <div class="absolute -right-10 -bottom-10 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="grid md:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="md:col-span-7 space-y-6">
+                        <span class="inline-block bg-brand-orange text-white text-xs font-black uppercase px-4 py-1.5 rounded-full tracking-wider">
+                            Promotion du mois
+                        </span>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+                            Séjour d'exception à Dubaï avec -20% de réduction
+                        </h2>
+                        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                            Profitez d'un package complet incluant le billet d'avion aller-retour, l'hébergement 5 étoiles, l'assistance visa express et les transferts aéroport.
+                        </p>
+                        <div class="flex items-baseline gap-4 pt-2">
+                            <span class="text-4xl font-extrabold text-brand-orange">1 200 $</span>
+                            <span class="text-xl text-gray-400 line-through">1 500 $</span>
+                        </div>
+                        <div>
+                            <a href="#reservation" class="inline-block bg-brand-red hover:bg-red-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-brand-red/30 transition-all hover:scale-105 active:scale-95">
+                                Réserver cette offre
+                            </a>
+                        </div>
+                    </div>
 
-  <script src="script.js"></script>
+                    <div class="md:col-span-5">
+                        <div class="relative rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl img-hover-zoom">
+                            <img src="promodubai.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80'" alt="Promo Dubaï" class="w-full h-80 object-cover" loading="lazy">
+                            <div class="absolute top-4 left-4 bg-brand-red text-white text-sm font-black px-4 py-2 rounded-xl shadow-md">
+                                -20% OFF
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         POURQUOI CHOISIR MONIA TOURS
+    =========================================== -->
+    <section id="services" class="py-24 px-6 max-w-7xl mx-auto gsap-reveal">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-brand-orange font-bold text-sm uppercase tracking-wider">Nos Services Exclusifs</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold mt-2">Pourquoi Choisir Monia Tours ?</h2>
+            <p class="text-gray-500 mt-4 text-sm sm:text-base">
+                Nous simplifions chacune des étapes de votre voyage pour vous garantir sérénité et confort absolu.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/60 hover:-translate-y-2 transition-all duration-300">
+                <div class="w-14 h-14 bg-orange-50 text-brand-orange rounded-2xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-plane-up"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Billets d’avion</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Accès direct aux tarifs négociés auprès des plus grandes compagnies aériennes internationales.
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/60 hover:-translate-y-2 transition-all duration-300">
+                <div class="w-14 h-14 bg-red-50 text-brand-red rounded-2xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-passport"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Assistance Visa</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Un accompagnement complet et personnalisé pour l'obtention rapide de vos visas.
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/60 hover:-translate-y-2 transition-all duration-300">
+                <div class="w-14 h-14 bg-orange-50 text-brand-orange rounded-2xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-hotel"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Réservation d’hôtel</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Une sélection d'établissements de qualité, du boutique-hôtel au complexe 5 étoiles.
+                </p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/60 hover:-translate-y-2 transition-all duration-300">
+                <div class="w-14 h-14 bg-red-50 text-brand-red rounded-2xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-earth-africa"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Circuits Touristiques</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Des itinéraires sur mesure encadrés par des guides professionnels passionnés.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         TÉMOIGNAGES (SWIPER SLIDER)
+    =========================================== -->
+    <section id="temoignages" class="py-20 bg-brand-light px-6 overflow-hidden gsap-reveal">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-orange font-bold text-sm uppercase tracking-wider">Avis de nos voyageurs</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-2">Ce que disent nos clients</h2>
+            </div>
+
+            <div class="swiper testimonialSwiper pb-12">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide bg-white p-8 rounded-3xl border border-gray-100 shadow-lg">
+                        <div class="flex text-yellow-400 gap-1 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                            "Monia Tours s'est occupée de tout pour notre voyage à Dubaï. Du visa au billet d'avion, le suivi a été parfait et sans aucun stress !"
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <img src="client1.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'" alt="Client" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <h4 class="font-bold text-sm">Sarah K.</h4>
+                                <span class="text-xs text-gray-400">Voyage à Dubaï</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide bg-white p-8 rounded-3xl border border-gray-100 shadow-lg">
+                        <div class="flex text-yellow-400 gap-1 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                            "Service d'assistance visa super efficace pour la France. Équipe professionnelle, très réactive sur WhatsApp. Je recommande les yeux fermés."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <img src="client2.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'" alt="Client" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <h4 class="font-bold text-sm">David M.</h4>
+                                <span class="text-xs text-gray-400">Séjour à Paris</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide bg-white p-8 rounded-3xl border border-gray-100 shadow-lg">
+                        <div class="flex text-yellow-400 gap-1 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                            "Des vacances inoubliables à Zanzibar grâce à Monia Tours. L'hôtel recommandé était tout simplement magnifique !"
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <img src="client3.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80'" alt="Client" class="w-12 h-12 rounded-full object-cover">
+                            <div>
+                                <h4 class="font-bold text-sm">Amina B.</h4>
+                                <span class="text-xs text-gray-400">Circuit Zanzibar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         GALERIE MASONRY
+    =========================================== -->
+    <section class="py-24 px-6 max-w-7xl mx-auto gsap-reveal">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-brand-orange font-bold text-sm uppercase tracking-wider">Galerie Photos</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold mt-2">Sourires & Souvenirs</h2>
+        </div>
+
+        <div class="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
+            <div class="overflow-hidden rounded-3xl img-hover-zoom">
+                <img src="galerie1.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80'" alt="Voyage" class="w-full object-cover" loading="lazy">
+            </div>
+            <div class="overflow-hidden rounded-3xl img-hover-zoom">
+                <img src="galerie2.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1476514525535-ce74f45814da?auto=format&fit=crop&w=600&q=80'" alt="Voyage" class="w-full object-cover" loading="lazy">
+            </div>
+            <div class="overflow-hidden rounded-3xl img-hover-zoom">
+                <img src="galerie3.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'" alt="Voyage" class="w-full object-cover" loading="lazy">
+            </div>
+            <div class="overflow-hidden rounded-3xl img-hover-zoom">
+                <img src="galerie4.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=600&q=80'" alt="Voyage" class="w-full object-cover" loading="lazy">
+            </div>
+            <div class="overflow-hidden rounded-3xl img-hover-zoom">
+                <img src="galerie5.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80'" alt="Voyage" class="w-full object-cover" loading="lazy">
+            </div>
+            <div class="overflow-hidden rounded-3xl img-hover-zoom">
+                <img src="galerie6.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80'" alt="Voyage" class="w-full object-cover" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CALL TO ACTION BANNER
+    =========================================== -->
+    <section id="reservation" class="py-12 px-6 max-w-7xl mx-auto gsap-reveal">
+        <div class="bg-gradient-to-r from-brand-orange to-red-600 rounded-3xl p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+            <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+                <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+                    Votre prochaine aventure commence aujourd’hui.
+                </h2>
+                <p class="text-white/90 text-sm sm:text-base">
+                    Contactez nos conseillers dès maintenant pour concevoir votre itinéraire sur mesure.
+                </p>
+                <div>
+                    <a href="https://wa.me/243000000000" target="_blank" class="inline-flex items-center gap-3 bg-white text-brand-dark hover:bg-gray-100 font-extrabold px-8 py-4 rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95">
+                        <i class="fa-brands fa-whatsapp text-green-500 text-xl"></i>
+                        <span>Réserver maintenant via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+    <footer class="bg-brand-dark text-gray-300 pt-16 pb-12 px-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            <!-- Col 1: Brand -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-xl bg-brand-red text-white flex items-center justify-center font-bold text-lg">
+                        M
+                    </div>
+                    <span class="font-extrabold text-2xl text-white">Monia<span class="text-brand-orange">Tours</span></span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed">
+                    Votre agence de voyage privilégiée pour la billetterie, l'assistance visas et les séjours touristiques.
+                </p>
+            </div>
+
+            <!-- Col 2: Navigation -->
+            <div>
+                <h4 class="text-white font-bold mb-4">Navigation</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="#accueil" class="hover:text-brand-orange transition-colors">Accueil</a></li>
+                    <li><a href="#destinations" class="hover:text-brand-orange transition-colors">Destinations</a></li>
+                    <li><a href="#promotions" class="hover:text-brand-orange transition-colors">Promotions</a></li>
+                    <li><a href="#services" class="hover:text-brand-orange transition-colors">Nos Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Contact -->
+            <div>
+                <h4 class="text-white font-bold mb-4">Contact</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-brand-orange"></i>
+                        <span>+243 000 000 000</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-green-500"></i>
+                        <span>+243 000 000 000</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-envelope text-brand-orange"></i>
+                        <span>contact@moniatours.com</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-location-dot text-brand-orange"></i>
+                        <span>Kinshasa, RDC</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Socials -->
+            <div>
+                <h4 class="text-white font-bold mb-4">Suivez-nous</h4>
+                <div class="flex gap-3">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+            &copy; <span id="year"></span> Monia Tours. Tous droits réservés.
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         SCRIPTS & ANIMATIONS
+    =========================================== -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Header Background Change on Scroll
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-3');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-3');
+                header.classList.add('py-4');
+            }
+        });
+
+        // Swiper Slider Init
+        const swiper = new Swiper(".testimonialSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Parallax Effect on Hero Background
+        gsap.to('.hero-bg-img', {
+            yPercent: 15,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '#accueil',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+
+        // Fade Up Section Animations
+        gsap.utils.toArray('.gsap-reveal').forEach(section => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+    </script>
 </body>
 </html>
