@@ -49,7 +49,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
-        /* Effet zoom doux sur le Hero */
         @keyframes heroZoom {
             0% { transform: scale(1); }
             100% { transform: scale(1.08); }
@@ -58,7 +57,6 @@
             animation: heroZoom 20s infinite alternate ease-in-out;
         }
 
-        /* Swiper custom pagination & buttons */
         .swiper-button-next, .swiper-button-prev {
             color: #FF5722 !important;
             background: white;
@@ -81,11 +79,10 @@
 <body class="bg-brand-slate text-slate-800 font-sans antialiased overflow-x-hidden">
 
     <!-- ==========================================
-         NAVIGATION BAR (Transparent to White)
+         NAVIGATION BAR
     =========================================== -->
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-900/40 backdrop-blur-md border-b border-white/10" id="main-header">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Logo -->
             <a href="#accueil" class="flex items-center gap-2.5">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-orange to-brand-red text-white flex items-center justify-center font-black text-xl shadow-lg shadow-brand-orange/30">
                     M
@@ -93,15 +90,15 @@
                 <span class="font-black text-2xl tracking-tight text-white">Monia<span class="text-brand-orange">Tours</span></span>
             </a>
 
-            <!-- Desktop Menu -->
             <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-white/80">
                 <a href="#accueil" class="hover:text-white transition-colors">Accueil</a>
                 <a href="#partenaires" class="hover:text-white transition-colors">Compagnies</a>
-                <a href="#destinations" class="hover:text-white transition-colors">Destinations</a>
-                <a href="#services" class="hover:text-white transition-colors">Nos Services</a>
+                <a href="#destinations" class="hover:text-white transition-colors">International</a>
+                <a href="#destinations-locales" class="hover:text-white transition-colors">Destinations RDC</a>
+                <a href="#promo" class="hover:text-white transition-colors">Offres Spéciales</a>
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
             </nav>
 
-            <!-- CTA Button -->
             <div class="hidden md:block">
                 <a href="#reservation" class="bg-brand-orange hover:bg-brand-red text-white font-bold text-sm px-6 py-3 rounded-full shadow-lg shadow-brand-orange/30 transition-all hover:scale-105 active:scale-95 inline-flex items-center gap-2">
                     <i class="fa-solid fa-paper-plane text-xs"></i>
@@ -109,34 +106,31 @@
                 </a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
             <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
-        <!-- Mobile Nav Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 flex flex-col gap-4 text-sm font-medium text-white">
             <a href="#accueil" class="py-2 hover:text-brand-orange">Accueil</a>
             <a href="#partenaires" class="py-2 hover:text-brand-orange">Compagnies</a>
-            <a href="#destinations" class="py-2 hover:text-brand-orange">Destinations</a>
-            <a href="#services" class="py-2 hover:text-brand-orange">Nos Services</a>
+            <a href="#destinations" class="py-2 hover:text-brand-orange">International</a>
+            <a href="#destinations-locales" class="py-2 hover:text-brand-orange">Destinations RDC</a>
+            <a href="#promo" class="py-2 hover:text-brand-orange">Offres Spéciales</a>
+            <a href="#services" class="py-2 hover:text-brand-orange">Services</a>
             <a href="#reservation" class="bg-brand-orange text-white font-bold text-center py-3 rounded-xl mt-2">Réserver maintenant</a>
         </div>
     </header>
 
     <!-- ==========================================
-         1. HERO SECTION (100vh Fullscreen)
+         1. HERO SECTION
     =========================================== -->
     <section id="accueil" class="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        <!-- Background Image with Parallax/Zoom effect -->
         <div class="absolute inset-0 z-0 overflow-hidden">
-            <img src="hero-travel.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80'" alt="Voyage de rêve Monia Tours" class="w-full h-full object-cover animate-hero-bg">
-            <!-- Overlay dégradé noir transparent -->
+            <img src="hero-travel.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80'" alt="Voyage Monia Tours" class="w-full h-full object-cover animate-hero-bg">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-brand-dark/30"></div>
         </div>
 
-        <!-- Hero Content (Centered) -->
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white space-y-8 mt-12">
             <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-widest">
                 <i class="fa-solid fa-star text-brand-orange"></i>
@@ -148,10 +142,9 @@
             </h1>
 
             <p class="text-lg sm:text-xl md:text-2xl text-slate-200 font-light max-w-3xl mx-auto leading-relaxed drop-shadow">
-                Billets d’avion, assistance visa et séjours touristiques vers les plus belles destinations du monde.
+                Billets d’avion, assistance visa et séjours touristiques vers les plus belles destinations du monde et de la RDC.
             </p>
 
-            <!-- Buttons -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
                 <a href="#reservation" class="w-full sm:w-auto bg-brand-orange hover:bg-brand-red text-white font-bold text-base px-8 py-4 rounded-full shadow-2xl shadow-brand-orange/40 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
                     <span>Réserver maintenant</span>
@@ -163,14 +156,13 @@
             </div>
         </div>
 
-        <!-- Scroll Down Indicator -->
         <a href="#partenaires" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/60 hover:text-white transition-colors animate-bounce">
             <i class="fa-solid fa-chevron-down text-2xl"></i>
         </a>
     </section>
 
     <!-- ==========================================
-         2. COMPAGNIES AÉRIENNES (Slider Infini)
+         2. COMPAGNIES AÉRIENNES
     =========================================== -->
     <section id="partenaires" class="py-16 bg-white border-b border-slate-100 shadow-sm relative z-20">
         <div class="max-w-7xl mx-auto px-6 mb-10 text-center">
@@ -178,10 +170,8 @@
             <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark">Nos compagnies partenaires</h2>
         </div>
 
-        <!-- Infinite Logo Carousel Container -->
         <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
             <div class="flex items-center justify-center md:justify-start [&_img]:max-w-none animate-infinite-scroll gap-16">
-                <!-- Group 1 -->
                 <img src="https://logo.clearbit.com/airfrance.com" onerror="this.src='https://placehold.co/180x60/ffffff/0F172A?text=Air+France'" alt="Air France" class="h-10 sm:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
                 <img src="https://logo.clearbit.com/emirates.com" onerror="this.src='https://placehold.co/180x60/ffffff/0F172A?text=Emirates'" alt="Emirates" class="h-10 sm:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
                 <img src="https://logo.clearbit.com/brusselsairlines.com" onerror="this.src='https://placehold.co/180x60/ffffff/0F172A?text=Brussels+Airlines'" alt="Brussels Airlines" class="h-10 sm:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
@@ -191,7 +181,7 @@
                 <img src="https://logo.clearbit.com/turkishairlines.com" onerror="this.src='https://placehold.co/180x60/ffffff/0F172A?text=Turkish+Airlines'" alt="Turkish Airlines" class="h-10 sm:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
                 <img src="https://logo.clearbit.com/qatarairways.com" onerror="this.src='https://placehold.co/180x60/ffffff/0F172A?text=Qatar+Airways'" alt="Qatar Airways" class="h-10 sm:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
 
-                <!-- Group 2 (Dupliqué pour boucle infinie fluide) -->
+                <!-- Loop Dup -->
                 <img src="https://logo.clearbit.com/airfrance.com" onerror="this.src='https://placehold.co/180x60/ffffff/0F172A?text=Air+France'" alt="Air France" class="h-10 sm:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
                 <img src="https://logo.clearbit.com/emirates.com" onerror="this.src='https://placehold.co/180x60/ffffff/0F172A?text=Emirates'" alt="Emirates" class="h-10 sm:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
                 <img src="https://logo.clearbit.com/brusselsairlines.com" onerror="this.src='https://placehold.co/180x60/ffffff/0F172A?text=Brussels+Airlines'" alt="Brussels Airlines" class="h-10 sm:h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
@@ -205,36 +195,32 @@
     </section>
 
     <!-- ==========================================
-         3. DESTINATIONS POPULAIRES (Slider Modern)
+         3. DESTINATIONS POPULAIRES (International)
     =========================================== -->
-    <section id="destinations" class="py-24 max-w-7xl mx-auto px-6">
+    <section id="destinations" class="py-20 max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-                <span class="text-brand-orange font-bold text-xs uppercase tracking-widest block mb-1">Inspiration Voyage</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark">Destinations Populaires</h2>
+                <span class="text-brand-orange font-bold text-xs uppercase tracking-widest block mb-1">Évasion Internationale</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark">Destinations Internationales</h2>
             </div>
             <p class="text-slate-500 text-sm max-w-md">
-                Découvrez nos itinéraires les plus prisés avec offres combinées billets et assistance visas.
+                Nos meilleures offres combinées avec billetterie et facilitation de visas.
             </p>
         </div>
 
-        <!-- Swiper Slider Container -->
         <div class="swiper destinationsSlider !pb-14">
             <div class="swiper-wrapper">
-                
-                <!-- Slide 1: Dubaï -->
+                <!-- Dubaï -->
                 <div class="swiper-slide">
                     <div class="group bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col justify-between h-[480px]">
                         <div class="relative h-72 overflow-hidden">
                             <img src="dubai.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80'" alt="Dubaï" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                                Émirats Arabes Unis
-                            </span>
+                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-md">Émirats Arabes Unis</span>
                         </div>
                         <div class="p-6 flex flex-col justify-between flex-1">
                             <div>
                                 <h3 class="text-2xl font-bold text-brand-dark mb-1">Dubaï</h3>
-                                <p class="text-xs text-slate-500">Inclus : Billet d'avion, Safari désert & assistance visa express.</p>
+                                <p class="text-xs text-slate-500">Vol, hôtel & assistance visa express inclus.</p>
                             </div>
                             <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-4">
                                 <div>
@@ -247,19 +233,17 @@
                     </div>
                 </div>
 
-                <!-- Slide 2: Paris -->
+                <!-- Paris -->
                 <div class="swiper-slide">
                     <div class="group bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col justify-between h-[480px]">
                         <div class="relative h-72 overflow-hidden">
                             <img src="paris.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80'" alt="Paris" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                                France
-                            </span>
+                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-md">France</span>
                         </div>
                         <div class="p-6 flex flex-col justify-between flex-1">
                             <div>
                                 <h3 class="text-2xl font-bold text-brand-dark mb-1">Paris</h3>
-                                <p class="text-xs text-slate-500">Séjour culturel, monuments historiques et shopping haut de gamme.</p>
+                                <p class="text-xs text-slate-500">Séjour culturel, monuments et shopping à la capitale.</p>
                             </div>
                             <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-4">
                                 <div>
@@ -272,19 +256,17 @@
                     </div>
                 </div>
 
-                <!-- Slide 3: Istanbul -->
+                <!-- Istanbul -->
                 <div class="swiper-slide">
                     <div class="group bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col justify-between h-[480px]">
                         <div class="relative h-72 overflow-hidden">
                             <img src="istanbul.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80'" alt="Istanbul" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                                Turquie
-                            </span>
+                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-md">Turquie</span>
                         </div>
                         <div class="p-6 flex flex-col justify-between flex-1">
                             <div>
                                 <h3 class="text-2xl font-bold text-brand-dark mb-1">Istanbul</h3>
-                                <p class="text-xs text-slate-500">Croisière sur le Bosphore, bazars traditionnels et architecture féerique.</p>
+                                <p class="text-xs text-slate-500">Croisière Bosphore, bazars et histoire millénaire.</p>
                             </div>
                             <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-4">
                                 <div>
@@ -297,19 +279,17 @@
                     </div>
                 </div>
 
-                <!-- Slide 4: Bangkok -->
+                <!-- Bangkok -->
                 <div class="swiper-slide">
                     <div class="group bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col justify-between h-[480px]">
                         <div class="relative h-72 overflow-hidden">
                             <img src="thailande.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1506665531195-3566af294710?auto=format&fit=crop&w=800&q=80'" alt="Bangkok" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                                Thaïlande
-                            </span>
+                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-md">Thaïlande</span>
                         </div>
                         <div class="p-6 flex flex-col justify-between flex-1">
                             <div>
                                 <h3 class="text-2xl font-bold text-brand-dark mb-1">Bangkok & Phuket</h3>
-                                <p class="text-xs text-slate-500">Temples majestueux, plages d'exception et immersion complète.</p>
+                                <p class="text-xs text-slate-500">Temples majestueux et plages paradisiaques.</p>
                             </div>
                             <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-4">
                                 <div>
@@ -321,35 +301,8 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Slide 5: Le Cap -->
-                <div class="swiper-slide">
-                    <div class="group bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col justify-between h-[480px]">
-                        <div class="relative h-72 overflow-hidden">
-                            <img src="afriquesud.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80'" alt="Le Cap" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
-                                Afrique du Sud
-                            </span>
-                        </div>
-                        <div class="p-6 flex flex-col justify-between flex-1">
-                            <div>
-                                <h3 class="text-2xl font-bold text-brand-dark mb-1">Le Cap</h3>
-                                <p class="text-xs text-slate-500">Safaris spectaculaires, Table Mountain et panoramas d'exception.</p>
-                            </div>
-                            <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-4">
-                                <div>
-                                    <span class="text-[10px] text-slate-400 block uppercase font-semibold">À partir de</span>
-                                    <span class="text-2xl font-black text-brand-orange">1 150 $</span>
-                                </div>
-                                <a href="#reservation" class="bg-brand-slate hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-5 py-3 rounded-xl transition-all">Découvrir</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
             
-            <!-- Controls -->
             <div class="swiper-pagination"></div>
             <div class="swiper-button-next hidden md:flex"></div>
             <div class="swiper-button-prev hidden md:flex"></div>
@@ -357,9 +310,136 @@
     </section>
 
     <!-- ==========================================
+         4. DESTINATIONS LOCALES (RDC)
+    =========================================== -->
+    <section id="destinations-locales" class="py-20 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <span class="text-brand-orange font-bold text-xs uppercase tracking-widest block mb-1">Vol Nationaux & Tourisme</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark">Destinations Locales (RDC)</h2>
+                </div>
+                <p class="text-slate-500 text-sm max-w-md">
+                    Découvrez les trésors de la République Démocratique du Congo avec nos offres de vol domestique et séjours sur-mesure.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Lubumbashi -->
+                <div class="group bg-brand-slate rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/60 transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80" alt="Lubumbashi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full">Haut-Katanga</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-brand-dark mb-1">Lubumbashi</h3>
+                        <p class="text-xs text-slate-500 mb-4">Capitale cuivrée, affaires et découvertes culturelles.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-200/60">
+                            <span class="text-xs font-bold text-brand-orange">Vols réguliers</span>
+                            <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition-all">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Matadi -->
+                <div class="group bg-brand-slate rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/60 transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80" alt="Matadi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full">Kongo-Central</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-brand-dark mb-1">Matadi</h3>
+                        <p class="text-xs text-slate-500 mb-4">Pont Maréchal, reliefs majestueux et port fluvial.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-200/60">
+                            <span class="text-xs font-bold text-brand-orange">Circuit guidé</span>
+                            <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition-all">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kisangani -->
+                <div class="group bg-brand-slate rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/60 transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Kisangani" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full">Tshopo</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-brand-dark mb-1">Kisangani</h3>
+                        <p class="text-xs text-slate-500 mb-4">La ville espoir, chutes Wagenia et le fleuve Congo.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-200/60">
+                            <span class="text-xs font-bold text-brand-orange">Ecotourisme</span>
+                            <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition-all">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Moanda -->
+                <div class="group bg-brand-slate rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/60 transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Moanda" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full">Côte Atlantique</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-brand-dark mb-1">Moanda</h3>
+                        <p class="text-xs text-slate-500 mb-4">Détente au bord de l'océan Atlantique et Parc des Mangroves.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-200/60">
+                            <span class="text-xs font-bold text-brand-orange">Séjour Plage</span>
+                            <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition-all">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         5. SECTION PROMOTION DUBAÏ (-10%)
+    =========================================== -->
+    <section id="promo" class="py-16 max-w-7xl mx-auto px-6">
+        <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-brand-dark via-slate-900 to-brand-dark text-white p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-2xl">
+            <!-- Background Glow & Image Overlay -->
+            <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full opacity-30 lg:opacity-50 pointer-events-none">
+                <img src="dubai.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1000&q=80'" alt="Promo Dubai" class="w-full h-full object-cover">
+            </div>
+
+            <div class="relative z-10 max-w-xl space-y-6">
+                <div class="inline-flex items-center gap-2 bg-brand-orange text-white px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider">
+                    <i class="fa-solid fa-fire"></i>
+                    <span>Offre Limitee</span>
+                </div>
+
+                <h2 class="text-3xl sm:text-5xl font-black leading-tight">
+                    Spécial Dubaï <span class="text-brand-orange">-10%</span> de réduction
+                </h2>
+
+                <p class="text-slate-300 text-sm sm:text-base font-light leading-relaxed">
+                    Reservez votre package complet (Billet d'avion + Visa express + Hôtel) cette semaine et bénéficiez immédiatement de 10% de remise sur le tarif global.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-6 pt-2">
+                    <div>
+                        <span class="text-xs text-slate-400 block uppercase font-medium">Prix Promo</span>
+                        <div class="flex items-baseline gap-3">
+                            <span class="text-3xl font-black text-brand-orange">765 $</span>
+                            <span class="text-sm text-slate-500 line-through">850 $</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20profiter%20de%20la%20promo%20Duba%C3%AF%20-10%25" target="_blank" class="bg-brand-orange hover:bg-brand-red text-white font-extrabold text-sm px-8 py-4 rounded-full shadow-xl shadow-brand-orange/30 transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Profiter de l'offre</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
          SERVICES SECTION
     =========================================== -->
-    <section id="services" class="py-20 bg-white border-y border-slate-100">
+    <section id="services" class="py-20 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
                 <span class="text-brand-orange font-bold text-xs uppercase tracking-widest">Nos compétences</span>
@@ -367,7 +447,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
                 <div class="p-8 rounded-3xl bg-brand-slate border border-slate-100 hover:border-brand-orange/30 transition-all hover:shadow-2xl hover:shadow-brand-orange/5 group">
                     <div class="w-14 h-14 rounded-2xl bg-brand-light text-brand-orange flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-ticket"></i>
@@ -378,7 +457,6 @@
                     </p>
                 </div>
 
-                <!-- Service 2 -->
                 <div class="p-8 rounded-3xl bg-brand-slate border border-slate-100 hover:border-brand-orange/30 transition-all hover:shadow-2xl hover:shadow-brand-orange/5 group">
                     <div class="w-14 h-14 rounded-2xl bg-brand-light text-brand-orange flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-passport"></i>
@@ -389,7 +467,6 @@
                     </p>
                 </div>
 
-                <!-- Service 3 -->
                 <div class="p-8 rounded-3xl bg-brand-slate border border-slate-100 hover:border-brand-orange/30 transition-all hover:shadow-2xl hover:shadow-brand-orange/5 group">
                     <div class="w-14 h-14 rounded-2xl bg-brand-light text-brand-orange flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-mountain-sun"></i>
@@ -446,9 +523,9 @@
                 <h4 class="text-white font-bold mb-4">Navigation</h4>
                 <ul class="space-y-2 text-sm text-slate-400">
                     <li><a href="#accueil" class="hover:text-brand-orange transition-colors">Accueil</a></li>
-                    <li><a href="#partenaires" class="hover:text-brand-orange transition-colors">Compagnies</a></li>
-                    <li><a href="#destinations" class="hover:text-brand-orange transition-colors">Destinations</a></li>
-                    <li><a href="#services" class="hover:text-brand-orange transition-colors">Services</a></li>
+                    <li><a href="#destinations" class="hover:text-brand-orange transition-colors">International</a></li>
+                    <li><a href="#destinations-locales" class="hover:text-brand-orange transition-colors">Destinations RDC</a></li>
+                    <li><a href="#promo" class="hover:text-brand-orange transition-colors">Offre Dubaï</a></li>
                 </ul>
             </div>
 
@@ -480,13 +557,11 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS EXTERNES ET CONFIGURATION -->
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Année dynamique footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Toggle Menu Mobile
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         if (menuToggle && mobileMenu) {
@@ -495,7 +570,6 @@
             });
         }
 
-        // Transformation du header au scroll (Transparent -> Blanc)
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) {
@@ -519,7 +593,6 @@
             }
         });
 
-        // Swiper Slider Destinations Init
         const swiper = new Swiper('.destinationsSlider', {
             slidesPerView: 1,
             spaceBetween: 24,
@@ -537,14 +610,8 @@
                 prevEl: '.swiper-button-prev',
             },
             breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 24,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 32,
-                },
+                640: { slidesPerView: 2, spaceBetween: 24 },
+                1024: { slidesPerView: 3, spaceBetween: 32 },
             },
         });
     </script>
