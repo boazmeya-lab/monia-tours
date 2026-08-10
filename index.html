@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Monia Tours | Agence de Voyage & Tourisme</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome pour les icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
@@ -12,25 +13,24 @@
   <!-- EN-TÊTE / NAVIGATION -->
   <header class="navbar">
     <div class="container nav-container">
+      
+      <!-- EMPLACEMENT DU LOGO -->
       <a href="#" class="logo">
-        <img src="logo.png" alt="Monia Tours Logo" class="logo-img" onerror="this.style.display='none'" />
+        <!-- Remplace 'logo.png' par le chemin exact de ton fichier image de logo -->
+        <img src="logo.png" alt="Monia Tours Logo" class="logo-img" />
         <span class="logo-text">MONIA <span>TOURS</span></span>
       </a>
 
-      <!-- MENU HAMBURGER MOBILE -->
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <nav id="nav-menu">
+      <nav>
         <ul class="nav-links">
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#apropos">À Propos</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#destinations">Destinations</a></li>
           <li><a href="#partenaires">Partenaires</a></li>
+          <!-- BOUTON CONTACT WHATSAPP DANS LE MENU -->
           <li>
-            <a href="https://wa.me/243000000000?text=Bonjour%20Monia%20Tours" target="_blank" class="btn-whatsapp-nav">
+            <a href="https://wa.me/243000000000?text=Bonjour%20Monia%20Tours,%20je%20souhaite%20avoir%20des%20informations." target="_blank" class="btn-whatsapp-nav">
               <i class="fab fa-whatsapp"></i> Contacter
             </a>
           </li>
@@ -39,56 +39,49 @@
     </div>
   </header>
 
-  <!-- CARROUSEL HÉRO -->
+  <!-- CARROUSEL HÉRO (DUBAÏ, PARIS, AMSTERDAM, BRUXELLES) -->
   <section id="accueil" class="hero">
     <div class="carousel">
       <!-- Slide 1: Dubaï -->
-      <div class="slide active">
-        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop" alt="Dubaï" class="slide-img" />
-        <div class="slide-overlay"></div>
+      <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80');">
         <div class="slide-content">
           <h1>Explorez Dubaï</h1>
           <p>Luxe, modernité et séjours inoubliables aux Émirats.</p>
-          <a href="https://wa.me/243000000000?text=Je%20souhaite%20réserver%20pour%20Dubaï" target="_blank" class="btn-primary">Réserver un voyage</a>
+          <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20réserver%20un%20voyage%20pour%20Dubaï." target="_blank" class="btn-primary">Réserver un voyage</a>
         </div>
       </div>
       <!-- Slide 2: Paris -->
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop" alt="Paris" class="slide-img" />
-        <div class="slide-overlay"></div>
+      <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80');">
         <div class="slide-content">
           <h1>Découvrez Paris</h1>
           <p>La capitale de la culture, de la mode et des affaires.</p>
-          <a href="https://wa.me/243000000000?text=Je%20souhaite%20réserver%20pour%20Paris" target="_blank" class="btn-primary">Réserver un voyage</a>
+          <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20réserver%20un%20voyage%20pour%20Paris." target="_blank" class="btn-primary">Réserver un voyage</a>
         </div>
       </div>
       <!-- Slide 3: Amsterdam -->
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?q=80&w=1200&auto=format&fit=crop" alt="Amsterdam" class="slide-img" />
-        <div class="slide-overlay"></div>
+      <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1600&q=80');">
         <div class="slide-content">
           <h1>S'évader à Amsterdam</h1>
           <p>Charme des canaux et cadre d'exception en Europe.</p>
-          <a href="https://wa.me/243000000000?text=Je%20souhaite%20réserver%20pour%20Amsterdam" target="_blank" class="btn-primary">Réserver un voyage</a>
+          <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20réserver%20un%20voyage%20pour%20Amsterdam." target="_blank" class="btn-primary">Réserver un voyage</a>
         </div>
       </div>
       <!-- Slide 4: Bruxelles -->
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1559564484-e48b3e040ff4?q=80&w=1200&auto=format&fit=crop" alt="Bruxelles" class="slide-img" />
-        <div class="slide-overlay"></div>
+      <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1559564484-e48b3e040ff4?auto=format&fit=crop&w=1600&q=80');">
         <div class="slide-content">
           <h1>Visitez Bruxelles</h1>
           <p>Le cœur culturel et politique du continent européen.</p>
-          <a href="https://wa.me/243000000000?text=Je%20souhaite%20réserver%20pour%20Bruxelles" target="_blank" class="btn-primary">Réserver un voyage</a>
+          <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20réserver%20un%20voyage%20pour%20Bruxelles." target="_blank" class="btn-primary">Réserver un voyage</a>
         </div>
       </div>
     </div>
 
-    <button class="carousel-btn prev" aria-label="Précédent"><i class="fas fa-chevron-left"></i></button>
-    <button class="carousel-btn next" aria-label="Suivant"><i class="fas fa-chevron-right"></i></button>
+    <!-- Contrôles du carrousel -->
+    <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+    <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
   </section>
 
-  <!-- À PROPOS -->
+  <!-- À PROPOS & MISSION -->
   <section id="apropos" class="section">
     <div class="container">
       <div class="section-title">
@@ -97,6 +90,7 @@
       </div>
       <div class="about-text">
         <p><strong>Monia Tours</strong> est une agence de voyage et de tourisme spécialisée dans l'accompagnement complet des voyageurs. Notre mission est d'offrir des solutions clés en main : de la réservation de vos billets d'avion jusqu'à votre arrivée à destination.</p>
+        <p>Que ce soit pour des déplacements professionnels, des vacances en famille, des voyages d'affaires ou l'organisation de circuits de groupe, nous mettons notre expertise à votre service pour vous garantir sérénité, conseil et suivi rigoureux.</p>
       </div>
     </div>
   </section>
@@ -151,80 +145,71 @@
         <p>Découvrez nos offres et destinations populaires</p>
       </div>
       <div class="destinations-grid">
+        <!-- Carte Dubaï -->
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=600&auto=format&fit=crop" alt="Dubaï" />
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Dubaï" />
           <div class="card-body">
             <h3>Dubaï (Émirats)</h3>
             <p>Vol, assistance & séjour sur mesure.</p>
             <div class="price">Tarif sur demande</div>
-            <a href="https://wa.me/243000000000?text=Tarifs%20Dubaï" target="_blank" class="btn-secondary">Se renseigner</a>
+            <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20les%20tarifs%20pour%20Dubaï." target="_blank" class="btn-secondary">Se renseigner</a>
           </div>
         </div>
+        <!-- Carte Paris -->
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=600&auto=format&fit=crop" alt="Paris" />
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" alt="Paris" />
           <div class="card-body">
             <h3>Paris (France)</h3>
             <p>Billetterie vols directs & accompagnement.</p>
             <div class="price">Tarif sur demande</div>
-            <a href="https://wa.me/243000000000?text=Tarifs%20Paris" target="_blank" class="btn-secondary">Se renseigner</a>
+            <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20les%20tarifs%20pour%20Paris." target="_blank" class="btn-secondary">Se renseigner</a>
           </div>
         </div>
+        <!-- Carte Amsterdam -->
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?q=80&w=600&auto=format&fit=crop" alt="Amsterdam" />
+          <img src="https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=600&q=80" alt="Amsterdam" />
           <div class="card-body">
             <h3>Amsterdam (Pays-Bas)</h3>
             <p>Circuits touristiques et vols réguliers.</p>
             <div class="price">Tarif sur demande</div>
-            <a href="https://wa.me/243000000000?text=Tarifs%20Amsterdam" target="_blank" class="btn-secondary">Se renseigner</a>
+            <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20les%20tarifs%20pour%20Amsterdam." target="_blank" class="btn-secondary">Se renseigner</a>
           </div>
         </div>
+        <!-- Carte Bruxelles -->
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1559564484-e48b3e040ff4?q=80&w=600&auto=format&fit=crop" alt="Bruxelles" />
+          <img src="https://images.unsplash.com/photo-1559564484-e48b3e040ff4?auto=format&fit=crop&w=600&q=80" alt="Bruxelles" />
           <div class="card-body">
             <h3>Bruxelles (Belgique)</h3>
             <p>Réservations vols & facilitation de séjour.</p>
             <div class="price">Tarif sur demande</div>
-            <a href="https://wa.me/243000000000?text=Tarifs%20Bruxelles" target="_blank" class="btn-secondary">Se renseigner</a>
+            <a href="https://wa.me/243000000000?text=Bonjour,%20je%20souhaite%20des%20informations%20sur%20les%20tarifs%20pour%20Bruxelles." target="_blank" class="btn-secondary">Se renseigner</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COMPAGNIES PARTENAIRES (LOGOS FLOTTANTS CONTINUS) -->
+  <!-- COMPAGNIES PARTENAIRES -->
   <section id="partenaires" class="section bg-light">
     <div class="container">
       <div class="section-title">
         <h2>Compagnies Aériennes Partenaires</h2>
         <p>Nous travaillons avec les meilleures compagnies pour vos trajets</p>
       </div>
-    </div>
-
-    <!-- CARROUSEL FLOTTANT DE LOGOS PARTENAIRES -->
-    <div class="marquee-container">
-      <div class="marquee-track">
-        <div class="partner-card"><i class="fas fa-plane"></i> Air Congo</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Congo Airways</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Ethiopian Airlines</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Brussels Airlines</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Air France</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Turkish Airlines</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Qatar Airways</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Kenya Airways</div>
-        <!-- Doublon pour défilement infini sans coupure -->
-        <div class="partner-card"><i class="fas fa-plane"></i> Air Congo</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Congo Airways</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Ethiopian Airlines</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Brussels Airlines</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Air France</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Turkish Airlines</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Qatar Airways</div>
-        <div class="partner-card"><i class="fas fa-plane"></i> Kenya Airways</div>
+      <div class="partners-list">
+        <span class="partner-badge">Air Congo</span>
+        <span class="partner-badge">Congo Airways</span>
+        <span class="partner-badge">Ethiopian Airlines</span>
+        <span class="partner-badge">Brussels Airlines</span>
+        <span class="partner-badge">Air France</span>
+        <span class="partner-badge">Turkish Airlines</span>
+        <span class="partner-badge">Qatar Airways</span>
+        <span class="partner-badge">Kenya Airways</span>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- PIED DE PAGE -->
   <footer id="contact">
     <div class="container footer-content">
       <div>
@@ -242,7 +227,8 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/243000000000?text=Bonjour%20Monia%20Tours" class="whatsapp-float" target="_blank">
+  <!-- BOUTON FLOTTANT WHATSAPP (AFFICHE EN BAS À DROITE DU SITE) -->
+  <a href="https://wa.me/243000000000?text=Bonjour%20Monia%20Tours,%20je%20souhaite%20obtenir%20des%20renseignements." class="whatsapp-float" target="_blank" title="Discuter sur WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
