@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monia Tours | Agence de Voyage & Billetterie</title>
-    <meta name="description" content="Billets d'avion, assistance visas, séjours touristiques et voyages organisés avec Monia Tours.">
+    <title>Monia Tours | Agence de Voyage, Billetterie & Assistance Visas</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,537 +13,382 @@
                 extend: {
                     colors: {
                         brand: {
-                            orange: '#F97316',
-                            red: '#DC2626',
+                            orange: '#FF5722',
+                            red: '#E53935',
                             dark: '#111827',
-                            light: '#F8F9FA',
+                            light: '#FFF5F2',
                         }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome Icons -->
+    
+    <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        /* Glassmorphism & utility classes */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        
-        /* Swiper custom pagination */
-        .swiper-pagination-bullet-active {
-            background-color: #F97316 !important;
-            width: 24px !important;
-            border-radius: 9999px !important;
-        }
-
-        /* Image hover zoom effect */
-        .img-hover-zoom {
-            overflow: hidden;
-        }
         .img-hover-zoom img {
-            transition: transform 0.5s ease-out;
+            transition: transform 0.5s ease;
         }
         .img-hover-zoom:hover img {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body class="bg-white text-brand-dark antialiased selection:bg-brand-orange selection:text-white">
+<body class="bg-slate-50 text-gray-800 font-sans antialiased overflow-x-hidden">
 
     <!-- ==========================================
-         HEADER / NAVBAR
+         NAVIGATION BAR
     =========================================== -->
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <!-- Logo -->
-            <a href="#" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 rounded-xl bg-brand-red text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-brand-red/30 group-hover:scale-105 transition-transform">
+            <a href="#accueil" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-orange to-brand-red text-white flex items-center justify-center font-black text-xl shadow-md">
                     M
                 </div>
                 <span class="font-extrabold text-2xl tracking-tight text-brand-dark">Monia<span class="text-brand-orange">Tours</span></span>
             </a>
 
-            <!-- Desktop Nav Menu -->
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-600">
                 <a href="#accueil" class="hover:text-brand-orange transition-colors">Accueil</a>
+                <a href="#services" class="hover:text-brand-orange transition-colors">Nos Services</a>
                 <a href="#destinations" class="hover:text-brand-orange transition-colors">Destinations</a>
-                <a href="#budget" class="hover:text-brand-orange transition-colors">Par Budget</a>
-                <a href="#promotions" class="hover:text-brand-orange transition-colors">Promotions</a>
-                <a href="#services" class="hover:text-brand-orange transition-colors">Services</a>
-                <a href="#temoignages" class="hover:text-brand-orange transition-colors">Avis</a>
+                <a href="#a-propos" class="hover:text-brand-orange transition-colors">À Propos</a>
             </nav>
 
-            <!-- Actions -->
-            <div class="hidden md:flex items-center gap-4">
-                <a href="#reservation" class="bg-brand-red text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-red-700 transition-all shadow-md hover:shadow-lg hover:shadow-brand-red/20 active:scale-95">
-                    Réserver maintenant
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="#reservation" class="bg-brand-orange hover:bg-red-600 text-white font-bold text-sm px-6 py-3 rounded-full shadow-lg shadow-brand-orange/30 transition-all hover:scale-105 active:scale-95 inline-flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                    <span>Réserver un billet</span>
                 </a>
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button id="menu-toggle" class="md:hidden text-2xl text-brand-dark focus:outline-none" aria-label="Ouvrir le menu">
+            <button id="menu-toggle" class="md:hidden text-gray-700 text-2xl focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
-        <!-- Mobile Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl py-6 px-6 flex flex-col gap-4 font-medium">
-            <a href="#accueil" class="mobile-link py-2 border-b border-gray-50">Accueil</a>
-            <a href="#destinations" class="mobile-link py-2 border-b border-gray-50">Destinations</a>
-            <a href="#budget" class="mobile-link py-2 border-b border-gray-50">Par Budget</a>
-            <a href="#promotions" class="mobile-link py-2 border-b border-gray-50">Promotions</a>
-            <a href="#services" class="mobile-link py-2 border-b border-gray-50">Services</a>
-            <a href="#temoignages" class="mobile-link py-2 border-b border-gray-50">Avis</a>
-            <a href="#reservation" class="mobile-link text-center bg-brand-red text-white py-3 rounded-xl mt-2 font-semibold">Réserver maintenant</a>
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+            <a href="#accueil" class="py-2 hover:text-brand-orange">Accueil</a>
+            <a href="#services" class="py-2 hover:text-brand-orange">Nos Services</a>
+            <a href="#destinations" class="py-2 hover:text-brand-orange">Destinations</a>
+            <a href="#a-propos" class="py-2 hover:text-brand-orange">À Propos</a>
+            <a href="#reservation" class="bg-brand-orange text-white font-bold text-center py-3 rounded-xl">Réserver un billet</a>
         </div>
     </header>
 
     <!-- ==========================================
          HERO SECTION
     =========================================== -->
-    <section id="accueil" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="imageaccueil.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80'" alt="Voyage Monia Tours" class="w-full h-full object-cover object-center scale-105 hero-bg-img">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center">
-            <div class="md:col-span-8 text-white space-y-6">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold uppercase tracking-wider text-brand-orange">
-                    <i class="fa-solid fa-compass animate-spin" style="animation-duration: 10s;"></i> Votre partenaire voyage de confiance
+    <section id="accueil" class="pt-32 pb-16 md:pt-40 md:pb-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Left Text Content -->
+            <div class="space-y-6">
+                <div class="inline-flex items-center gap-2 bg-brand-light text-brand-orange px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    <span>Partenaire Billetterie & Visas</span>
                 </div>
                 
-                <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight tracking-tight">
-                    <span id="hero-title-text">Explorez le monde avec</span> <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-red-500">Monia Tours</span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark leading-tight">
+                    Voyagez vers vos destinations d'exception.
                 </h1>
-
-                <p class="text-lg sm:text-xl text-gray-200 max-w-2xl font-normal leading-relaxed">
-                    Billets d’avion, visas, séjours touristiques et voyages organisés vers les plus belles destinations du monde.
+                
+                <p class="text-gray-600 text-base sm:text-lg leading-relaxed max-w-xl">
+                    Monia Tours simplifie tous vos déplacements : vente de billets d'avion vers les plus grandes compagnies et assistance complète pour le suivi de vos visas.
                 </p>
 
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#search" class="bg-brand-red hover:bg-red-700 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg shadow-brand-red/30 hover:scale-105 active:scale-95 flex items-center gap-3">
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#reservation" class="bg-brand-orange hover:bg-red-600 text-white font-bold text-base px-8 py-4 rounded-2xl shadow-xl shadow-brand-orange/25 transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
                         <span>Réserver maintenant</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
                     </a>
-                    <a href="#destinations" class="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/30 font-bold px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95">
-                        Nos destinations
+                    <a href="#services" class="bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 font-bold text-base px-8 py-4 rounded-2xl transition-all">
+                        Nos services
                     </a>
                 </div>
-            </div>
-        </div>
 
-        <!-- Floating Search Bar -->
-        <div id="search" class="absolute bottom-6 left-6 right-6 z-20 max-w-5xl mx-auto hidden lg:block">
-            <div class="glass-card p-4 rounded-3xl shadow-2xl border border-white/40">
-                <form class="grid grid-cols-4 gap-4 items-center">
-                    <div class="p-3 bg-white/50 rounded-2xl border border-gray-100 hover:border-brand-orange transition-colors">
-                        <label class="block text-xs font-bold text-gray-400 uppercase">Destination / Pays</label>
-                        <div class="flex items-center gap-2 mt-1">
-                            <i class="fa-solid fa-location-dot text-brand-orange"></i>
-                            <input type="text" placeholder="Où souhaitez-vous aller ?" class="bg-transparent text-sm font-semibold w-full focus:outline-none">
-                        </div>
-                    </div>
-
-                    <div class="p-3 bg-white/50 rounded-2xl border border-gray-100 hover:border-brand-orange transition-colors">
-                        <label class="block text-xs font-bold text-gray-400 uppercase">Ville de départ</label>
-                        <div class="flex items-center gap-2 mt-1">
-                            <i class="fa-solid fa-plane-departure text-brand-orange"></i>
-                            <input type="text" placeholder="Ville ou aéroport" class="bg-transparent text-sm font-semibold w-full focus:outline-none">
-                        </div>
-                    </div>
-
-                    <div class="p-3 bg-white/50 rounded-2xl border border-gray-100 hover:border-brand-orange transition-colors">
-                        <label class="block text-xs font-bold text-gray-400 uppercase">Date de départ</label>
-                        <div class="flex items-center gap-2 mt-1">
-                            <i class="fa-solid fa-calendar text-brand-orange"></i>
-                            <input type="date" class="bg-transparent text-sm font-semibold w-full focus:outline-none text-gray-700">
-                        </div>
-                    </div>
-
-                    <button type="submit" class="h-full bg-brand-orange hover:bg-orange-600 text-white font-bold rounded-2xl transition-all shadow-lg shadow-brand-orange/30 flex items-center justify-center gap-2 p-4 text-base">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <span>Rechercher</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mobile Search Bar -->
-    <div class="lg:hidden p-6 bg-brand-light border-b border-gray-200">
-        <form class="space-y-3">
-            <div class="p-3 bg-white rounded-xl border border-gray-200">
-                <label class="block text-xs font-bold text-gray-400 uppercase">Destination</label>
-                <input type="text" placeholder="Dubaï, Paris, Zanzibar..." class="w-full text-sm font-semibold focus:outline-none mt-1">
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-gray-200">
-                <label class="block text-xs font-bold text-gray-400 uppercase">Date</label>
-                <input type="date" class="w-full text-sm font-semibold focus:outline-none mt-1">
-            </div>
-            <button type="submit" class="w-full bg-brand-orange text-white font-bold p-3 rounded-xl shadow-md">
-                Rechercher un voyage
-            </button>
-        </form>
-    </div>
-
-    <!-- ==========================================
-         SECTIONS PAR CONTINENT (CARROUSELS LATÉRAUX)
-    =========================================== -->
-    <section id="destinations" class="py-20 px-6 max-w-7xl mx-auto space-y-16 gsap-reveal">
-
-        <!-- 1. EUROPE -->
-        <div>
-            <div class="flex justify-between items-end mb-6">
-                <div>
-                    <span class="text-brand-orange font-bold text-xs uppercase tracking-wider">Découvrez l'Europe</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark">Destinations en Europe</h2>
-                </div>
-                <div class="flex gap-2">
-                    <button id="euro-prev" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button id="euro-next" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="swiper europeSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden img-hover-zoom">
-                        <div class="relative h-52">
-                            <img src="france.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80'" alt="Paris" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-5">
-                            <h3 class="font-bold text-lg">Paris, France</h3>
-                            <p class="text-xs text-gray-500 mb-3">5 Jours • Vol & Hôtel</p>
-                            <span class="text-brand-orange font-extrabold text-lg">1 450 $</span>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden img-hover-zoom">
-                        <div class="relative h-52">
-                            <img src="portugal.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=600&q=80'" alt="Lisbonne" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-5">
-                            <h3 class="font-bold text-lg">Lisbonne, Portugal</h3>
-                            <p class="text-xs text-gray-500 mb-3">6 Jours • Vol & Hôtel</p>
-                            <span class="text-brand-orange font-extrabold text-lg">1 250 $</span>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden img-hover-zoom">
-                        <div class="relative h-52">
-                            <img src="turquie.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=600&q=80'" alt="Istanbul" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-5">
-                            <h3 class="font-bold text-lg">Istanbul, Turquie</h3>
-                            <p class="text-xs text-gray-500 mb-3">6 Jours • Vol & Hôtel</p>
-                            <span class="text-brand-orange font-extrabold text-lg">980 $</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2. AFRIQUE & SÉJOURS LOCAUX -->
-        <div>
-            <div class="flex justify-between items-end mb-6">
-                <div>
-                    <span class="text-brand-orange font-bold text-xs uppercase tracking-wider">Séjours & Tourisme</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-brand-dark">Afrique & Destinations Locales</h2>
-                </div>
-                <div class="flex gap-2">
-                    <button id="local-prev" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button id="local-next" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors flex items-center justify-center">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="swiper localSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden img-hover-zoom">
-                        <div class="relative h-52">
-                            <img src="zanzibar.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80'" alt="Zanzibar" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-5">
-                            <h3 class="font-bold text-lg">Zanzibar, Tanzanie</h3>
-                            <p class="text-xs text-gray-500 mb-3">7 Jours • Séjour Plage</p>
-                            <span class="text-brand-orange font-extrabold text-lg">1 100 $</span>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden img-hover-zoom">
-                        <div class="relative h-52">
-                            <img src="egypte.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=600&q=80'" alt="Égypte" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-5">
-                            <h3 class="font-bold text-lg">Le Caire, Égypte</h3>
-                            <p class="text-xs text-gray-500 mb-3">6 Jours • Pyramides & Nil</p>
-                            <span class="text-brand-orange font-extrabold text-lg">950 $</span>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-white rounded-3xl border border-gray-100 shadow-lg overflow-hidden img-hover-zoom">
-                        <div class="relative h-52">
-                            <img src="kinshasa.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=600&q=80'" alt="Tourisme RDC" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-5">
-                            <h3 class="font-bold text-lg">Safari & Nature en RDC</h3>
-                            <p class="text-xs text-gray-500 mb-3">3 Jours • Circuit Local</p>
-                            <span class="text-brand-orange font-extrabold text-lg">450 $</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- ==========================================
-         SECTION "VOYAGER SELON MON BUDGET"
-    =========================================== -->
-    <section id="budget" class="py-16 bg-brand-light px-6 gsap-reveal">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="text-brand-orange font-bold text-xs uppercase tracking-wider">Trouvez selon vos moyens</span>
-                <h2 class="text-3xl font-extrabold text-brand-dark">Où partir selon votre budget ?</h2>
-                <p class="text-gray-500 text-sm mt-2">Sélectionnez le montant que vous souhaitez investir pour votre voyage.</p>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-3 mb-10">
-                <button onclick="filterBudget('all')" class="budget-btn px-6 py-2.5 rounded-full text-sm font-bold bg-brand-dark text-white shadow-md transition-all">
-                    Tous les budgets
-                </button>
-                <button onclick="filterBudget(500)" class="budget-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white text-brand-dark border border-gray-200 hover:bg-brand-orange hover:text-white transition-all">
-                    Moins de 500 $
-                </button>
-                <button onclick="filterBudget(1000)" class="budget-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white text-brand-dark border border-gray-200 hover:bg-brand-orange hover:text-white transition-all">
-                    Jusqu'à 1 000 $
-                </button>
-                <button onclick="filterBudget(1500)" class="budget-btn px-6 py-2.5 rounded-full text-sm font-bold bg-white text-brand-dark border border-gray-200 hover:bg-brand-orange hover:text-white transition-all">
-                    1 000 $ - 1 500 $
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="budget-cards">
-                <div class="budget-item bg-white p-5 rounded-3xl border border-gray-100 shadow-md flex items-center gap-4" data-price="450">
-                    <img src="kinshasa.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=200&q=80'" class="w-20 h-20 rounded-2xl object-cover">
+                <!-- Features Highlights -->
+                <div class="pt-6 grid grid-cols-3 gap-4 border-t border-gray-200/80">
                     <div>
-                        <h4 class="font-bold text-base">Circuit Écotourisme RDC</h4>
-                        <span class="text-xs text-gray-400 block">Séjour Local</span>
-                        <span class="text-brand-orange font-extrabold text-lg mt-1 block">450 $</span>
+                        <span class="block text-2xl font-black text-brand-dark">100%</span>
+                        <span class="text-xs text-gray-500 font-medium">Assistance dédiée</span>
                     </div>
-                </div>
-
-                <div class="budget-item bg-white p-5 rounded-3xl border border-gray-100 shadow-md flex items-center gap-4" data-price="980">
-                    <img src="turquie.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=200&q=80'" class="w-20 h-20 rounded-2xl object-cover">
                     <div>
-                        <h4 class="font-bold text-base">Escale Historique Istanbul</h4>
-                        <span class="text-xs text-gray-400 block">Turquie</span>
-                        <span class="text-brand-orange font-extrabold text-lg mt-1 block">980 $</span>
+                        <span class="block text-2xl font-black text-brand-dark">+10</span>
+                        <span class="text-xs text-gray-500 font-medium">Compagnies partenaires</span>
                     </div>
-                </div>
-
-                <div class="budget-item bg-white p-5 rounded-3xl border border-gray-100 shadow-md flex items-center gap-4" data-price="1200">
-                    <img src="dubai.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=200&q=80'" class="w-20 h-20 rounded-2xl object-cover">
                     <div>
-                        <h4 class="font-bold text-base">Package Spécial Dubaï</h4>
-                        <span class="text-xs text-gray-400 block">Émirats Arabes Unis</span>
-                        <span class="text-brand-orange font-extrabold text-lg mt-1 block">1 200 $</span>
+                        <span class="block text-2xl font-black text-brand-dark">24/7</span>
+                        <span class="text-xs text-gray-500 font-medium">Support client</span>
                     </div>
                 </div>
             </div>
+
+            <!-- Right Hero Image Showcase -->
+            <div class="relative">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white img-hover-zoom">
+                    <img src="hero-travel.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1000&q=80'" alt="Voyage Monia Tours" class="w-full h-[450px] sm:h-[520px] object-cover">
+                </div>
+
+                <!-- Floating Card -->
+                <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-gray-100 hidden sm:flex items-center gap-4 max-w-xs">
+                    <div class="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center text-xl font-bold shrink-0">
+                        <i class="fa-solid fa-passport"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-brand-dark">Suivi de Visas</h4>
+                        <p class="text-xs text-gray-500">Accompagnement de A à Z pour vos formalités</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- ==========================================
-         PROMOTIONS DU MOIS
+         SERVICES SECTION
     =========================================== -->
-    <section id="promotions" class="py-20 bg-white px-6 gsap-reveal">
-        <div class="max-w-7xl mx-auto">
-            <div class="bg-gradient-to-br from-brand-dark to-slate-900 rounded-3xl p-8 md:p-14 text-white relative overflow-hidden shadow-2xl">
-                <div class="absolute -right-10 -bottom-10 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="services" class="py-20 bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-brand-orange font-bold text-xs uppercase tracking-widest">Ce que nous faisons</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark">Des services complets pour vos voyages</h2>
+                <p class="text-gray-500 text-sm sm:text-base">De l'achat de vos billets d'avion à l'organisation de vos circuits touristiques, nous gérons tout.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <div class="grid md:grid-cols-12 gap-8 items-center relative z-10">
-                    <div class="md:col-span-7 space-y-6">
-                        <span class="inline-block bg-brand-orange text-white text-xs font-black uppercase px-4 py-1.5 rounded-full tracking-wider">
-                            Promotion du mois
-                        </span>
-                        <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight">
-                            Séjour d'exception à Dubaï avec -20% de réduction
-                        </h2>
-                        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                            Profitez d'un package complet incluant le billet d'avion aller-retour, l'hébergement 5 étoiles, l'assistance visa express et les transferts aéroport.
-                        </p>
-                        <div class="flex items-baseline gap-4 pt-2">
-                            <span class="text-4xl font-extrabold text-brand-orange">1 200 $</span>
-                            <span class="text-xl text-gray-400 line-through">1 500 $</span>
-                        </div>
-                        <div>
-                            <a href="#reservation" class="inline-block bg-brand-red hover:bg-red-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-brand-red/30 transition-all hover:scale-105 active:scale-95">
-                                Réserver cette offre
-                            </a>
-                        </div>
+                <!-- Service 1: Billetterie -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-gray-100 hover:border-brand-orange/30 transition-all hover:shadow-xl hover:shadow-brand-orange/5 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-light text-brand-orange flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-ticket"></i>
                     </div>
-
-                    <div class="md:col-span-5">
-                        <div class="relative rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl img-hover-zoom">
-                            <img src="promodubai.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80'" alt="Promo Dubaï" class="w-full h-80 object-cover" loading="lazy">
-                            <div class="absolute top-4 left-4 bg-brand-red text-white text-sm font-black px-4 py-2 rounded-xl shadow-md">
-                                -20% OFF
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Vente de Billets d'Avion</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Émission de billets pour vols nationaux et internationaux en partenariat avec les meilleures compagnies aériennes.
+                    </p>
                 </div>
+
+                <!-- Service 2: Visas -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-gray-100 hover:border-brand-orange/30 transition-all hover:shadow-xl hover:shadow-brand-orange/5 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-light text-brand-orange flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-passport"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Facilitation & Suivi Visa</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Un accompagnement rigoureux pour la préparation, la vérification et le suivi de vos dossiers de candidature au visa.
+                    </p>
+                </div>
+
+                <!-- Service 3: Tourisme -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-gray-100 hover:border-brand-orange/30 transition-all hover:shadow-xl hover:shadow-brand-orange/5 group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-light text-brand-orange flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-mountain-sun"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Tourisme & Séjours</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Création d'itinéraires sur-mesure et découverte touristique, aussi bien pour explorer la RDC que pour vos séjours à l'étranger.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PARTNERS / AIRLINES SECTION
+    =========================================== -->
+    <section class="py-12 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">
+                En partenariat direct avec les plus grandes compagnies
+            </p>
+
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-75 grayscale hover:grayscale-0 transition-all">
+                <span class="font-extrabold text-xl text-gray-700 tracking-wider">AIR CONGO</span>
+                <span class="font-extrabold text-xl text-blue-800 tracking-wider">CONGO AIRWAYS</span>
+                <span class="font-extrabold text-xl text-blue-600 tracking-wider">AIR FRANCE</span>
+                <span class="font-extrabold text-xl text-red-600 tracking-wider">BRUSSELS AIRLINES</span>
+                <span class="font-extrabold text-xl text-red-700 tracking-wider">FLY EMIRATES</span>
+                <span class="font-extrabold text-xl text-yellow-600 tracking-wider">ETHIOPIAN AIRLINES</span>
             </div>
         </div>
     </section>
 
     <!-- ==========================================
-         POURQUOI CHOISIR MONIA TOURS
+         DESTINATIONS SECTION
     =========================================== -->
-    <section id="services" class="py-24 px-6 max-w-7xl mx-auto gsap-reveal">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-brand-orange font-bold text-sm uppercase tracking-wider">Nos Services Exclusifs</span>
-            <h2 class="text-3xl md:text-5xl font-extrabold mt-2">Pourquoi Choisir Monia Tours ?</h2>
-            <p class="text-gray-500 mt-4 text-sm sm:text-base">
-                Nous simplifions chacune des étapes de votre voyage pour vous garantir sérénité et confort absolu.
+    <section id="destinations" class="py-20 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+                <span class="text-brand-orange font-bold text-xs uppercase tracking-widest">Inspiration Voyage</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-1">Destinations Populaires</h2>
+            </div>
+            <p class="text-gray-500 text-sm max-w-md">
+                Découvrez nos packages recommandés avec billetterie, réservations et conseils de visa.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/60 hover:-translate-y-2 transition-all duration-300">
-                <div class="w-14 h-14 bg-orange-50 text-brand-orange rounded-2xl flex items-center justify-center text-2xl mb-6">
-                    <i class="fa-solid fa-plane-up"></i>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Card 1: Dubai -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="dubai.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80'" alt="Dubaï" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 5 Jours
+                    </span>
                 </div>
-                <h3 class="text-xl font-bold mb-3">Billets d’avion</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                    Tarifs négociés auprès des plus grandes compagnies aériennes internationales.
-                </p>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Dubaï, Émirats Arabes Unis</h3>
+                    <p class="text-sm text-gray-500 mb-4">Inclus : Billet d'avion, Safari désert & assistance visa express.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">850 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/60 hover:-translate-y-2 transition-all duration-300">
-                <div class="w-14 h-14 bg-red-50 text-brand-red rounded-2xl flex items-center justify-center text-2xl mb-6">
-                    <i class="fa-solid fa-passport"></i>
+            <!-- Card 2: Paris -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="paris.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80'" alt="Paris" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 7 Jours
+                    </span>
                 </div>
-                <h3 class="text-xl font-bold mb-3">Assistance Visa</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                    Un accompagnement complet et personnalisé pour l'obtention rapide de vos visas.
-                </p>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Paris, France</h3>
+                    <p class="text-sm text-gray-500 mb-4">Séjour culturel, monuments historiques et shopping haut de gamme.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">1 200 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/60 hover:-translate-y-2 transition-all duration-300">
-                <div class="w-14 h-14 bg-orange-50 text-brand-orange rounded-2xl flex items-center justify-center text-2xl mb-6">
-                    <i class="fa-solid fa-hotel"></i>
+            <!-- Card 3: Istanbul -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="istanbul.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80'" alt="Istanbul" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 6 Jours
+                    </span>
                 </div>
-                <h3 class="text-xl font-bold mb-3">Réservation d’hôtel</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                    Une sélection d'établissements de qualité, du boutique-hôtel au complexe 5 étoiles.
-                </p>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Istanbul, Turquie</h3>
+                    <p class="text-sm text-gray-500 mb-4">Croisière sur le Bosphore, bazars traditionnels et architecture féerique.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">950 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/60 hover:-translate-y-2 transition-all duration-300">
-                <div class="w-14 h-14 bg-red-50 text-brand-red rounded-2xl flex items-center justify-center text-2xl mb-6">
-                    <i class="fa-solid fa-earth-africa"></i>
+            <!-- Card 4: RDC / Tourisme Local -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="rdc.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80'" alt="Tourisme RDC" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> Sur-Mesure
+                    </span>
                 </div>
-                <h3 class="text-xl font-bold mb-3">Circuits Touristiques</h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                    Des itinéraires sur mesure encadrés par des guides professionnels passionnés.
-                </p>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Ecotourisme en RDC</h3>
+                    <p class="text-sm text-gray-500 mb-4">Découvrez la beauté naturelle, les parcs et le riche patrimoine de la RDC.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Sur devis</span>
+                            <span class="text-xl font-extrabold text-brand-orange">Sur Mesure</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
             </div>
+
+            <!-- Card 5: Thaïlande -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="thailande.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1506665531195-3566af294710?auto=format&fit=crop&w=800&q=80'" alt="Thaïlande" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 10 Jours
+                    </span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Bangkok & Phuket</h3>
+                    <p class="text-sm text-gray-500 mb-4">Temples majestueux, plages de rêve et dépaysement total.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">1 350 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Afrique du Sud -->
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/50 overflow-hidden img-hover-zoom flex flex-col justify-between">
+                <div class="relative h-64">
+                    <img src="afriquesud.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80'" alt="Afrique du Sud" class="w-full h-full object-cover" loading="lazy">
+                    <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-dark text-xs font-extrabold px-3 py-1.5 rounded-full shadow-sm">
+                        <i class="fa-regular fa-clock text-brand-orange mr-1"></i> 7 Jours
+                    </span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-1">Le Cap, Afrique du Sud</h3>
+                    <p class="text-sm text-gray-500 mb-4">Safaris d'exception, montagnes et paysages côtiers.</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="text-xs text-gray-400 block">À partir de</span>
+                            <span class="text-xl font-extrabold text-brand-orange">1 150 $</span>
+                        </div>
+                        <a href="#reservation" class="bg-brand-light hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl transition-all">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- ==========================================
-         TÉMOIGNAGES (SWIPER SLIDER)
+         CALL TO ACTION / RESERVATION
     =========================================== -->
-    <section id="temoignages" class="py-20 bg-brand-light px-6 overflow-hidden gsap-reveal">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-brand-orange font-bold text-sm uppercase tracking-wider">Avis de nos voyageurs</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold mt-2">Ce que disent nos clients</h2>
-            </div>
-
-            <div class="swiper testimonialSwiper pb-12">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide bg-white p-8 rounded-3xl border border-gray-100 shadow-lg">
-                        <div class="flex text-yellow-400 gap-1 text-sm mb-4">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
-                            "Monia Tours s'est occupée de tout pour notre voyage à Dubaï. Du visa au billet d'avion, le suivi a été parfait !"
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <img src="client1.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'" alt="Client" class="w-12 h-12 rounded-full object-cover">
-                            <div>
-                                <h4 class="font-bold text-sm">Sarah K.</h4>
-                                <span class="text-xs text-gray-400">Voyage à Dubaï</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-white p-8 rounded-3xl border border-gray-100 shadow-lg">
-                        <div class="flex text-yellow-400 gap-1 text-sm mb-4">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
-                            "Service d'assistance visa super efficace pour la France. Équipe très réactive sur WhatsApp."
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <img src="client2.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'" alt="Client" class="w-12 h-12 rounded-full object-cover">
-                            <div>
-                                <h4 class="font-bold text-sm">David M.</h4>
-                                <span class="text-xs text-gray-400">Séjour à Paris</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-         CALL TO ACTION BANNER
-    =========================================== -->
-    <section id="reservation" class="py-12 px-6 max-w-7xl mx-auto gsap-reveal">
+    <section id="reservation" class="py-12 px-6 max-w-7xl mx-auto">
         <div class="bg-gradient-to-r from-brand-orange to-red-600 rounded-3xl p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
             <div class="relative z-10 max-w-2xl mx-auto space-y-6">
                 <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight">
                     Votre prochaine aventure commence aujourd’hui.
                 </h2>
                 <p class="text-white/90 text-sm sm:text-base">
-                    Contactez nos conseillers dès maintenant pour concevoir votre itinéraire sur mesure.
+                    Contactez nos conseillers dès maintenant pour réserver votre billet ou obtenir une assistance visa.
                 </p>
                 <div>
                     <a href="https://wa.me/243000000000" target="_blank" class="inline-flex items-center gap-3 bg-white text-brand-dark hover:bg-gray-100 font-extrabold px-8 py-4 rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95">
                         <i class="fa-brands fa-whatsapp text-green-500 text-xl"></i>
-                        <span>Réserver maintenant via WhatsApp</span>
+                        <span>Réserver via WhatsApp</span>
                     </a>
                 </div>
             </div>
@@ -556,6 +400,7 @@
     =========================================== -->
     <footer class="bg-brand-dark text-gray-300 pt-16 pb-12 px-6 border-t border-gray-800">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            
             <div class="space-y-4">
                 <div class="flex items-center gap-2">
                     <div class="w-9 h-9 rounded-xl bg-brand-red text-white flex items-center justify-center font-bold text-lg">
@@ -572,9 +417,8 @@
                 <h4 class="text-white font-bold mb-4">Navigation</h4>
                 <ul class="space-y-2 text-sm text-gray-400">
                     <li><a href="#accueil" class="hover:text-brand-orange transition-colors">Accueil</a></li>
+                    <li><a href="#services" class="hover:text-brand-orange transition-colors">Services</a></li>
                     <li><a href="#destinations" class="hover:text-brand-orange transition-colors">Destinations</a></li>
-                    <li><a href="#budget" class="hover:text-brand-orange transition-colors">Par Budget</a></li>
-                    <li><a href="#promotions" class="hover:text-brand-orange transition-colors">Promotions</a></li>
                 </ul>
             </div>
 
@@ -589,10 +433,6 @@
                         <i class="fa-brands fa-whatsapp text-green-500"></i>
                         <span>+243 000 000 000</span>
                     </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fa-solid fa-envelope text-brand-orange"></i>
-                        <span>contact@moniatours.com</span>
-                    </li>
                 </ul>
             </div>
 
@@ -601,9 +441,9 @@
                 <div class="flex gap-3">
                     <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
+
         </div>
 
         <div class="max-w-7xl mx-auto pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
@@ -611,14 +451,23 @@
         </div>
     </footer>
 
-    <!-- ==========================================
-         SCRIPTS EXTERNES ET FICHIER APP.JS
-    =========================================== -->
+    <!-- SCRIPTS EXTERNES ET FICHIER APP.JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- Fichier de script personnalisé -->
     <script src="app.js"></script>
+    <script>
+        // Année dynamique dans le footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Toggle Menu Mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
