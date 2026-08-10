@@ -1,5 +1,11 @@
-// Attendre que le DOM soit complètement chargé
+// Force le retour en haut de page lors du rechargement
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 document.addEventListener('DOMContentLoaded', () => {
+    window.scrollTo(0, 0);
 
     // 1. Année dynamique pour le Copyright
     const yearEl = document.getElementById('year');
@@ -37,6 +43,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Initialisation des Carrousels Swiper
 
+    // Carrousel Destinations Internationales
+    if (document.querySelector('.internationalSwiper')) {
+        new Swiper('.internationalSwiper', {
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+            navigation: {
+                nextEl: '#inter-next',
+                prevEl: '#inter-prev',
+            },
+            breakpoints: {
+                640: { slidesPerView: 2.2, spaceBetween: 20 },
+                1024: { slidesPerView: 3.5, spaceBetween: 24 }
+            }
+        });
+    }
+
+    // Carrousel Destinations Locales
+    if (document.querySelector('.localSwiper')) {
+        new Swiper('.localSwiper', {
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+            navigation: {
+                nextEl: '#local-next',
+                prevEl: '#local-prev',
+            },
+            breakpoints: {
+                640: { slidesPerView: 2.2, spaceBetween: 20 },
+                1024: { slidesPerView: 3.5, spaceBetween: 24 }
+            }
+        });
+    }
+
     // Carrousel des Témoignages
     if (document.querySelector('.testimonialSwiper')) {
         new Swiper('.testimonialSwiper', {
@@ -57,43 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Carrousel Europe
-    if (document.querySelector('.europeSwiper')) {
-        new Swiper('.europeSwiper', {
-            slidesPerView: 1.2,
-            spaceBetween: 16,
-            navigation: {
-                nextEl: '#euro-next',
-                prevEl: '#euro-prev',
-            },
-            breakpoints: {
-                640: { slidesPerView: 2.2, spaceBetween: 20 },
-                1024: { slidesPerView: 3.5, spaceBetween: 24 }
-            }
-        });
-    }
-
-    // Carrousel Afrique & Local
-    if (document.querySelector('.localSwiper')) {
-        new Swiper('.localSwiper', {
-            slidesPerView: 1.2,
-            spaceBetween: 16,
-            navigation: {
-                nextEl: '#local-next',
-                prevEl: '#local-prev',
-            },
-            breakpoints: {
-                640: { slidesPerView: 2.2, spaceBetween: 20 },
-                1024: { slidesPerView: 3.5, spaceBetween: 24 }
-            }
-        });
-    }
-
     // 5. Animations GSAP
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Effet Parallaxe sur l'image Hero
         if (document.querySelector('.hero-bg-img')) {
             gsap.to('.hero-bg-img', {
                 yPercent: 15,
@@ -107,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Animation d'apparition Fade Up sur les sections
         gsap.utils.toArray('.gsap-reveal').forEach(section => {
             gsap.from(section, {
                 opacity: 0,
@@ -123,30 +127,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-// 6. Fonction globale de filtrage par budget (accessible par onclick dans le HTML)
-window.filterBudget = function(maxPrice) {
-    const items = document.querySelectorAll('.budget-item');
-    const buttons = document.querySelectorAll('.budget-btn');
-
-    // Mise à jour du style des boutons de filtre
-    buttons.forEach(btn => {
-        btn.classList.remove('bg-brand-dark', 'text-white');
-        btn.classList.add('bg-white', 'text-brand-dark');
-    });
-
-    items.forEach(item => {
-        const price = parseInt(item.getAttribute('data-price'));
-        if (maxPrice === 'all') {
-            item.style.display = 'flex';
-        } else if (maxPrice === 500 && price <= 500) {
-            item.style.display = 'flex';
-        } else if (maxPrice === 1000 && price <= 1000) {
-            item.style.display = 'flex';
-        } else if (maxPrice === 1500 && price > 1000 && price <= 1500) {
-            item.style.display = 'flex';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-};
