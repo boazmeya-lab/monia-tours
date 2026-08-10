@@ -310,86 +310,120 @@
     </section>
 
     <!-- ==========================================
-         4. DESTINATIONS LOCALES (RDC)
+         4. DESTINATIONS LOCALES (RDC) - CARROUSEL LATÉRAL
     =========================================== -->
     <section id="destinations-locales" class="py-20 bg-white border-y border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                 <div>
-                    <span class="text-brand-orange font-bold text-xs uppercase tracking-widest block mb-1">Vol Nationaux & Tourisme</span>
+                    <span class="text-brand-orange font-bold text-xs uppercase tracking-widest block mb-1">Vols Nationaux & Tourisme</span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark">Destinations Locales (RDC)</h2>
                 </div>
                 <p class="text-slate-500 text-sm max-w-md">
-                    Découvrez les trésors de la République Démocratique du Congo avec nos offres de vol domestique et séjours sur-mesure.
+                    Découvrez les trésors de la République Démocratique du Congo avec nos offres de vols domestiques et séjours sur-mesure.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="swiper destinationsLocalesSlider !pb-14">
+                <div class="swiper-wrapper">
+                    
+                    <!-- Lubumbashi -->
+                    <div class="swiper-slide">
+                        <div class="group bg-brand-slate rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col justify-between h-[480px]">
+                            <div class="relative h-72 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80" alt="Lubumbashi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full">Haut-Katanga</span>
+                            </div>
+                            <div class="p-6 flex flex-col justify-between flex-1">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-brand-dark mb-1">Lubumbashi</h3>
+                                    <p class="text-xs text-slate-500">Capitale cuivrée, affaires et découvertes culturelles.</p>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t border-slate-200/60 mt-4">
+                                    <div>
+                                        <span class="text-[10px] text-slate-400 block uppercase font-semibold">À partir de</span>
+                                        <span class="text-2xl font-black text-brand-orange">280 $</span>
+                                    </div>
+                                    <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-5 py-3 rounded-xl border border-slate-200 transition-all">Découvrir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Matadi -->
+                    <div class="swiper-slide">
+                        <div class="group bg-brand-slate rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col justify-between h-[480px]">
+                            <div class="relative h-72 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80" alt="Matadi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full">Kongo-Central</span>
+                            </div>
+                            <div class="p-6 flex flex-col justify-between flex-1">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-brand-dark mb-1">Matadi</h3>
+                                    <p class="text-xs text-slate-500">Pont Maréchal, reliefs majestueux et port fluvial.</p>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t border-slate-200/60 mt-4">
+                                    <div>
+                                        <span class="text-[10px] text-slate-400 block uppercase font-semibold">À partir de</span>
+                                        <span class="text-2xl font-black text-brand-orange">150 $</span>
+                                    </div>
+                                    <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-5 py-3 rounded-xl border border-slate-200 transition-all">Découvrir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kisangani -->
+                    <div class="swiper-slide">
+                        <div class="group bg-brand-slate rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col justify-between h-[480px]">
+                            <div class="relative h-72 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Kisangani" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full">Tshopo</span>
+                            </div>
+                            <div class="p-6 flex flex-col justify-between flex-1">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-brand-dark mb-1">Kisangani</h3>
+                                    <p class="text-xs text-slate-500">La ville espoir, chutes Wagenia et le fleuve Congo.</p>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t border-slate-200/60 mt-4">
+                                    <div>
+                                        <span class="text-[10px] text-slate-400 block uppercase font-semibold">À partir de</span>
+                                        <span class="text-2xl font-black text-brand-orange">320 $</span>
+                                    </div>
+                                    <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-5 py-3 rounded-xl border border-slate-200 transition-all">Découvrir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Moanda -->
+                    <div class="swiper-slide">
+                        <div class="group bg-brand-slate rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col justify-between h-[480px]">
+                            <div class="relative h-72 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Moanda" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full">Côte Atlantique</span>
+                            </div>
+                            <div class="p-6 flex flex-col justify-between flex-1">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-brand-dark mb-1">Moanda</h3>
+                                    <p class="text-xs text-slate-500">Détente au bord de l'océan Atlantique et Parc des Mangroves.</p>
+                                </div>
+                                <div class="flex items-center justify-between pt-4 border-t border-slate-200/60 mt-4">
+                                    <div>
+                                        <span class="text-[10px] text-slate-400 block uppercase font-semibold">À partir de</span>
+                                        <span class="text-2xl font-black text-brand-orange">200 $</span>
+                                    </div>
+                                    <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-5 py-3 rounded-xl border border-slate-200 transition-all">Découvrir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 
-                <!-- Lubumbashi -->
-                <div class="group bg-brand-slate rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/60 transition-all duration-300 flex flex-col justify-between">
-                    <div class="relative h-60 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80" alt="Lubumbashi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full">Haut-Katanga</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-dark mb-1">Lubumbashi</h3>
-                        <p class="text-xs text-slate-500 mb-4">Capitale cuivrée, affaires et découvertes culturelles.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-200/60">
-                            <span class="text-xs font-bold text-brand-orange">Vols réguliers</span>
-                            <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition-all">Découvrir</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Matadi -->
-                <div class="group bg-brand-slate rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/60 transition-all duration-300 flex flex-col justify-between">
-                    <div class="relative h-60 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80" alt="Matadi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full">Kongo-Central</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-dark mb-1">Matadi</h3>
-                        <p class="text-xs text-slate-500 mb-4">Pont Maréchal, reliefs majestueux et port fluvial.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-200/60">
-                            <span class="text-xs font-bold text-brand-orange">Circuit guidé</span>
-                            <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition-all">Découvrir</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kisangani -->
-                <div class="group bg-brand-slate rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/60 transition-all duration-300 flex flex-col justify-between">
-                    <div class="relative h-60 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Kisangani" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full">Tshopo</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-dark mb-1">Kisangani</h3>
-                        <p class="text-xs text-slate-500 mb-4">La ville espoir, chutes Wagenia et le fleuve Congo.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-200/60">
-                            <span class="text-xs font-bold text-brand-orange">Ecotourisme</span>
-                            <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition-all">Découvrir</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Moanda -->
-                <div class="group bg-brand-slate rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/60 transition-all duration-300 flex flex-col justify-between">
-                    <div class="relative h-60 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Moanda" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <span class="absolute top-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full">Côte Atlantique</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-brand-dark mb-1">Moanda</h3>
-                        <p class="text-xs text-slate-500 mb-4">Détente au bord de l'océan Atlantique et Parc des Mangroves.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-200/60">
-                            <span class="text-xs font-bold text-brand-orange">Séjour Plage</span>
-                            <a href="#reservation" class="bg-white hover:bg-brand-orange hover:text-white text-brand-dark font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition-all">Découvrir</a>
-                        </div>
-                    </div>
-                </div>
-
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next hidden md:flex"></div>
+                <div class="swiper-button-prev hidden md:flex"></div>
             </div>
         </div>
     </section>
@@ -415,7 +449,7 @@
                 </h2>
 
                 <p class="text-slate-300 text-sm sm:text-base font-light leading-relaxed">
-                    Reservez votre package complet (Billet d'avion + Visa express + Hôtel) cette semaine et bénéficiez immédiatement de 10% de remise sur le tarif global.
+                    Réservez votre package complet (Billet d'avion + Visa express + Hôtel) cette semaine et bénéficiez immédiatement de 10% de remise sur le tarif global.
                 </p>
 
                 <div class="flex flex-wrap items-center gap-6 pt-2">
@@ -593,7 +627,8 @@
             }
         });
 
-        const swiper = new Swiper('.destinationsSlider', {
+        // Carrousel International
+        const swiperInt = new Swiper('.destinationsSlider', {
             slidesPerView: 1,
             spaceBetween: 24,
             loop: true,
@@ -602,12 +637,35 @@
                 disableOnInteraction: false,
             },
             pagination: {
-                el: '.swiper-pagination',
+                el: '.destinationsSlider .swiper-pagination',
                 clickable: true,
             },
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '.destinationsSlider .swiper-button-next',
+                prevEl: '.destinationsSlider .swiper-button-prev',
+            },
+            breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 24 },
+                1024: { slidesPerView: 3, spaceBetween: 32 },
+            },
+        });
+
+        // Carrousel Local (RDC)
+        const swiperLoc = new Swiper('.destinationsLocalesSlider', {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            loop: true,
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.destinationsLocalesSlider .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.destinationsLocalesSlider .swiper-button-next',
+                prevEl: '.destinationsLocalesSlider .swiper-button-prev',
             },
             breakpoints: {
                 640: { slidesPerView: 2, spaceBetween: 24 },
