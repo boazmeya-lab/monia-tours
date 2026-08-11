@@ -589,40 +589,84 @@
     </footer>
 
     <!-- SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                header.classList.remove('bg-slate-900/40', 'border-white/10');
-                header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'border-slate-100');
-                header.querySelectorAll('a, button').forEach(el => {
-                    if (!el.classList.contains('bg-brand-orange')) {
-                        el.classList.remove('text-white', 'text-white/80');
-                        el.classList.add('text-slate-800');
-                    }
-                });
-            } else {
-                header.classList.add('bg-slate-900/40', 'border-white/10');
-                header.classList.remove('bg-white/95', 'shadow-md', 'border-slate-100');
-                header.querySelectorAll('a, button').forEach(el => {
-                    if (!el.classList.contains('bg-brand-orange')) {
-                        el.classList.remove('text-slate-800');
-                        el.classList.add('text-white');
-                    }
-                });
-            }
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
+    }
+
+    const header = document.getElementById('main-header');
+    const logoImg = document.querySelector('#main-header img');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+            // Header scrollé (fond blanc)
+            header.classList.remove('bg-slate-900/40', 'border-white/10');
+            header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'border-slate-100');
+            
+            // Cible uniquement la navigation bureau et le bouton menu (exclut le menu mobile déroulant)
+            header.querySelectorAll('nav a, #menu-toggle').forEach(el => {
+                if (!el.classList.contains('bg-brand-orange')) {
+                    el.classList.remove('text-white', 'text-white/80');
+                    el.classList.add('text-slate-800');
+                }
+            });
+
+            // Repasse le logo en couleur normale sur le header blanc
+            if (logoImg) logoImg.classList.remove('brightness-0', 'invert');
+
+        } else {
+            // Header tout en haut (fond sombre)
+            header.classList.add('bg-slate-900/40', 'border-white/10');
+            header.classList.remove('bg-white/95', 'shadow-md', 'border-slate-100');
+            
+            header.querySelectorAll('nav a, #menu-toggle').forEach(el => {
+                if (!el.classList.contains('bg-brand-orange')) {
+                    el.classList.remove('text-slate-800');
+                    el.classList.add('text-white');
+                }
+            });
+
+            // Passe le logo en blanc sur le fond sombre
+            if (logoImg) logoImg.classList.add('brightness-0', 'invert');
+        }
+    });
+
+    // Swiper International
+    const swiperInt = new Swiper('.destinationsSlider', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        pagination: { el: '.destinationsSlider .swiper-pagination', clickable: true },
+        navigation: { nextEl: '.destinationsSlider .swiper-button-next', prevEl: '.destinationsSlider .swiper-button-prev' },
+        breakpoints: {
+            640: { slidesPerView: 2, spaceBetween: 24 },
+            1024: { slidesPerView: 3, spaceBetween: 32 },
+        },
+    });
+
+    // Swiper Local (RDC)
+    const swiperLoc = new Swiper('.destinationsLocalesSlider', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        autoplay: { delay: 4500, disableOnInteraction: false },
+        pagination: { el: '.destinationsLocalesSlider .swiper-pagination', clickable: true },
+        navigation: { nextEl: '.destinationsLocalesSlider .swiper-button-next', prevEl: '.destinationsLocalesSlider .swiper-button-prev' },
+        breakpoints: {
+            640: { slidesPerView: 2, spaceBetween: 24 },
+            1024: { slidesPerView: 3, spaceBetween: 32 },
+        },
+    });
+     </script>
+    
 
         // Carrousel International
         const swiperInt = new Swiper('.destinationsSlider', {
